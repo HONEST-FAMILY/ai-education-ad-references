@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>시안 B 같이 굴러가는 길</title>
+<link rel="stylesheet" href="lib/toss.css">
+<style>
+.stage{background:#eceef2}
+.world{position:absolute;left:0;top:0;width:8000px;height:3400px;transform-origin:0 0}
+.world svg{position:absolute;left:0;top:0;width:8000px;height:3400px;overflow:visible}
+.deco path{fill:none;stroke:#e3e6eb;stroke-width:70;stroke-linecap:round}
+.deco circle{fill:#e6e9ee}
+.road-shadow{fill:none;stroke:#d5d9e0;stroke-width:236;stroke-linecap:round;stroke-linejoin:round}
+.road-edge{fill:none;stroke:#e1e4e9;stroke-width:228;stroke-linecap:round;stroke-linejoin:round}
+.road-top{fill:none;stroke:#fff;stroke-width:208;stroke-linecap:round;stroke-linejoin:round}
+.road-mid{fill:none;stroke:#eceff3;stroke-width:6;stroke-dasharray:30 26;stroke-linecap:round}
+.trail{fill:none;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+.trail.y{stroke:#ffc83d}
+.trail.k{stroke:#2b313b}
+.glow{fill:none;stroke:#ffd75e;stroke-width:26;stroke-linecap:round;filter:drop-shadow(0 0 18px rgba(255,200,61,.9))}
+.ball{position:absolute;left:0;top:0;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%}
+.ball.y{background:radial-gradient(circle at 34% 30%,#fffbe6 0,#ffe47a 16%,#ffc83d 46%,#e8a400 82%,#c98a00 100%);box-shadow:0 18px 26px -10px rgba(140,96,0,.55)}
+.ball.k{background:radial-gradient(circle at 34% 30%,#9aa3b0 0,#4a5260 18%,#232933 52%,#11151b 100%);box-shadow:0 18px 26px -10px rgba(0,0,0,.55)}
+.tag{position:absolute;left:0;top:0;padding:10px 22px;border-radius:999px;background:#fff;font-weight:700;font-size:32px;color:var(--ink);white-space:nowrap;box-shadow:0 10px 26px -8px rgba(25,31,40,.3)}
+.tag.tk{background:var(--ink);color:#fff}
+.stn{position:absolute;width:250px;height:250px;margin:-125px 0 0 -125px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(25,31,40,.05),0 30px 60px -16px rgba(25,31,40,.25);display:grid;place-items:center}
+.stn img{width:150px;height:150px}
+.stn b{position:absolute;left:50%;top:268px;transform:translateX(-50%);font-size:84px;font-weight:800;color:var(--ink);white-space:nowrap;letter-spacing:-.03em}
+.wcard{position:absolute;background:#fff;border-radius:34px;overflow:hidden;box-shadow:0 2px 8px rgba(25,31,40,.05),0 40px 80px -20px rgba(25,31,40,.3)}
+.wcard .bar{height:46px;display:flex;align-items:center;gap:10px;padding:0 20px;border-bottom:1px solid #eef0f2}
+.wcard .bar i{width:14px;height:14px;border-radius:50%;background:#e5e8eb}
+.wcard .bar i:nth-child(1){background:#ff6159}.wcard .bar i:nth-child(2){background:#ffbe2f}.wcard .bar i:nth-child(3){background:#29c840}
+.wcard .bar span{margin-left:16px;padding:3px 18px;border-radius:999px;background:#f2f4f6;font-weight:600;font-size:19px;color:var(--ink3);letter-spacing:0}
+.wcard img.full{display:block;width:100%;height:calc(100% - 46px);object-fit:cover;object-position:top left}
+.doc{padding:50px 56px}
+.doc h4{font-size:46px;font-weight:800;letter-spacing:-.02em}
+.doc .row{display:flex;align-items:center;gap:20px;margin-top:30px;font-size:33px;font-weight:600;color:var(--ink2)}
+.doc .row i{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:#e8f7f0;flex:none}
+.doc .row i::after{content:"";width:18px;height:10px;border-left:5px solid var(--green);border-bottom:5px solid var(--green);transform:rotate(-45deg) translate(2px,-2px)}
+.wf{padding:44px}
+.wf .box{position:absolute;border:4px solid #d4d9df;border-radius:18px;background:#fafbfc}
+.wf .box.on{background:#fff3c4;border-color:#ffc83d}
+.wf .ln{position:absolute;height:12px;border-radius:6px;background:#e5e8eb}
+.wf .ar{position:absolute;height:6px;background:#c6ccd3;border-radius:3px}
+.code{background:#191f28;padding:46px 50px;font-family:Consolas,"Cascadia Code",monospace;font-size:30px;line-height:1.75;color:#e5e8eb;letter-spacing:0}
+.code .k{color:#ff8a78}.code .f{color:#ffd75e}.code .s{color:#7fe0b0}
+.okb{position:absolute;display:flex;align-items:center;gap:14px;padding:14px 26px 14px 16px;border-radius:999px;background:#fff;font-weight:700;font-size:30px;color:var(--ink);box-shadow:0 16px 36px -12px rgba(25,31,40,.35);white-space:nowrap}
+.okb img{width:48px;height:48px}
+.wphone{position:absolute;border-radius:70px;background:#0d0f14;padding:14px;box-shadow:0 0 0 2px #2b2f37 inset,0 40px 80px -20px rgba(25,31,40,.45)}
+.wphone .scr{position:relative;width:100%;height:100%;border-radius:57px;background:#f7f8fa;overflow:hidden;padding:84px 30px 0}
+.wphone .island{position:absolute;left:50%;top:16px;width:130px;height:38px;margin-left:-65px;border-radius:20px;background:#0d0f14}
+.wphone h5{font-size:36px;font-weight:800}
+.wphone .ad{margin-top:20px;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 8px 20px -10px rgba(25,31,40,.2)}
+.wphone .ad .hd{display:flex;align-items:center;gap:12px;padding:16px 18px;font-size:22px;font-weight:700}
+.wphone .ad .hd b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--yellow);font-size:18px;font-weight:800}
+.wphone .ad .hd small{display:block;font-size:16px;font-weight:600;color:var(--ink3)}
+.wphone .ad .im{height:300px;background:linear-gradient(160deg,#fff4c9,#ffc83d);display:flex;align-items:flex-end;padding:24px;font-size:36px;font-weight:800;line-height:1.25}
+.wphone .ad .ct{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;font-size:20px;font-weight:700}
+.wphone .ad .ct span{padding:8px 16px;border-radius:12px;background:var(--ink);color:#fff;font-size:18px}
+.wphone .tg{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding:18px 22px;border-radius:20px;background:#fff;font-size:24px;font-weight:700;box-shadow:0 8px 20px -10px rgba(25,31,40,.2)}
+.sw{position:relative;width:82px;height:44px;border-radius:22px;background:#d9dde2;flex:none}
+.sw .on{position:absolute;inset:0;border-radius:22px;background:var(--green);opacity:0}
+.sw b{position:absolute;left:5px;top:5px;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+.wall{position:absolute;width:300px;height:300px;margin:-150px 0 0 -150px}
+.wall .bar2{position:absolute;left:30px;top:110px;width:240px;height:80px;border-radius:16px;background:repeating-linear-gradient(-45deg,#f04452 0 28px,#fff 28px 56px);box-shadow:0 18px 30px -12px rgba(240,68,82,.6)}
+.wall img{position:absolute;left:70px;top:-60px;width:160px;height:160px}
+.piece{position:absolute;width:60px;height:36px;margin:-18px 0 0 -30px;border-radius:10px;background:repeating-linear-gradient(-45deg,#f04452 0 14px,#fff 14px 28px)}
+.boom{position:absolute;width:320px;height:320px;margin:-160px 0 0 -160px}
+.fx{position:absolute;width:120px;height:120px;margin:-60px 0 0 -60px}
+.flag{position:absolute;width:260px;height:260px;margin:-230px 0 0 -40px}
+.conf{position:absolute;width:26px;height:14px;margin:-7px 0 0 -13px;border-radius:4px}
+
+.ov{position:absolute;left:0;right:0;text-align:center;white-space:nowrap;font-weight:700;color:var(--ink)}
+.ov.big{top:120px;font-size:84px;letter-spacing:-.03em}
+.ov.big2{top:120px;font-size:66px;letter-spacing:-.03em}
+.ov.sub{bottom:50px}
+.ov.sub span.box{display:inline-block;padding:20px 40px;border-radius:999px;background:rgba(255,255,255,.92);font-size:44px;box-shadow:0 14px 40px -14px rgba(25,31,40,.28)}
+.pillw{position:absolute;left:0;right:0;top:236px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;background:var(--ink);font-weight:700;font-size:32px;color:#fff;white-space:nowrap}
+.pill i{width:14px;height:14px;border-radius:50%;background:var(--yellow)}
+.veil{position:absolute;inset:0;background:rgba(242,243,245,.86);opacity:0}
+.endlogo{position:absolute;left:0;right:0;top:760px;text-align:center}
+.endlogo img{height:56px}
+.url{top:850px;font-size:30px;font-weight:600;color:var(--ink3)}
+.hero2{top:450px;font-family:"SCD","Pretendard",sans-serif;font-weight:800;font-size:116px;letter-spacing:-.03em}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="world">
+    <svg class="deco" viewBox="0 0 8000 3400"></svg>
+    <svg class="roads" viewBox="0 0 8000 3400">
+      <path class="road-shadow" transform="translate(0 16)"/>
+      <path class="road-edge"/>
+      <path class="road-top"/>
+      <path class="road-mid"/>
+      <path class="glow" pathLength="1"/>
+      <path class="trail y" pathLength="1"/>
+      <path class="trail k" pathLength="1"/>
+    </svg>
+    <div class="cards"></div>
+    <div class="stns"></div>
+    <div class="wall"><span class="bar2"></span><img src="assets/fluent/construction_3d.png" alt=""></div>
+    <img class="boom" src="assets/fluent/collision_3d.png" alt="">
+    <div class="pieces"></div>
+    <div class="fxs"></div>
+    <img class="flag" src="assets/fluent/chequered_flag_3d.png" alt="">
+    <img class="fx popper" src="assets/fluent/party_popper_3d.png" alt="" style="width:220px;height:220px;margin:-110px 0 0 -110px">
+    <div class="confs"></div>
+    <div class="ball k"></div>
+    <div class="ball y"></div>
+    <span class="tag tk">1:1 실무자</span>
+    <span class="tag ty">내 아이디어</span>
+  </div>
+
+  <p class="ov big o1"><span class="wd">처음부터</span> <span class="wd">끝까지,</span> <span class="wd gr">같이</span> <span class="wd gr">갑니다.</span></p>
+  <p class="ov big2 o2"><span class="wd">아이디어</span> <span class="wd">한</span> <span class="wd">줄부터</span> <span class="wd gr">판매까지</span></p>
+  <div class="pillw o2p"><span class="pill"><i></i>AI 부트캠프 1:1 제작 동행</span></div>
+  <p class="ov sub s1"><span class="box">스타트업부터 대기업까지, <span class="gr">60여 개</span>를 만든 실무자가</span></p>
+  <p class="ov sub s2"><span class="box">기획부터 디자인까지, 매 단계 옆에서</span></p>
+  <p class="ov sub s3"><span class="box">혼자라면 <span class="gr">멈췄을</span> 구간도</span></p>
+  <p class="ov sub s4"><span class="box"><span class="gr">같이</span> 넘어갑니다</span></p>
+  <p class="ov sub s5"><span class="box">출시까지, <span class="gr">끝까지</span></span></p>
+  <p class="ov sub s6"><span class="box">만들고 끝이 아니라, <span class="gr">고객을 데려오는 광고까지</span></span></p>
+  <div class="veil"></div>
+  <p class="ov big o9" style="top:96px"><span class="wd">처음부터</span> <span class="wd">끝까지,</span> <span class="wd gr">같이.</span></p>
+  <div class="pillw e1" style="top:290px"><span class="pill"><i></i>AI 부트캠프 1:1 제작 동행</span></div>
+  <p class="ov e2" style="top:380px;font-size:76px"><span class="wd">내</span> <span class="wd">아이디어를,</span> <span class="wd">판매할</span> <span class="wd">수</span> <span class="wd">있는</span></p>
+  <p class="ov hero2"><span class="wd gr">진짜</span> <span class="wd gr">서비스로.</span></p>
+  <div class="endlogo"><img class="logo-ink" src="assets/hf-logo.png" alt=""></div>
+  <p class="ov url">honest-family.com/ai-education</p>
+</div>
+<script>
+window.DURATION = 26;
+const POINTS = [[600, 1950], [1500, 1350], [2500, 2050], [3500, 1300], [4500, 2000], [5500, 1300], [6500, 1950], [7400, 1500]];
+const STATIONS = [
+  { label: "기획", icon: "memo" },
+  { label: "설계", icon: "triangular_ruler" },
+  { label: "디자인", icon: "artist_palette" },
+  { label: "개발", icon: "laptop" },
+  { label: "출시", icon: "rocket" },
+  { label: "광고", icon: "megaphone" },
+];
+
+const smoothPath = (points) => {
+  let d = `M${points[0][0]} ${points[0][1]}`;
+  for (let i = 0; i < points.length - 1; i++) {
+    const p0 = points[Math.max(0, i - 1)];
+    const p1 = points[i];
+    const p2 = points[i + 1];
+    const p3 = points[Math.min(points.length - 1, i + 2)];
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += ` C${c1[0]} ${c1[1]} ${c2[0]} ${c2[1]} ${p2[0]} ${p2[1]}`;
+  }
+  return d;
+};
+const ROAD = smoothPath(POINTS);
+document.querySelectorAll(".roads path").forEach((path) => path.setAttribute("d", ROAD));
+const probe = document.querySelector(".road-top");
+const TOTAL = probe.getTotalLength();
+const SAMPLES = [];
+for (let i = 0; i <= 1600; i++) {
+  const point = probe.getPointAtLength((i / 1600) * TOTAL);
+  SAMPLES.push([point.x, point.y]);
+}
+const at = (length) => {
+  const clamped = Math.min(TOTAL, Math.max(0, length));
+  const point = probe.getPointAtLength(clamped);
+  const ahead = probe.getPointAtLength(Math.min(TOTAL, clamped + 4));
+  const behind = probe.getPointAtLength(Math.max(0, clamped - 4));
+  const dx = ahead.x - behind.x;
+  const dy = ahead.y - behind.y;
+  const size = Math.hypot(dx, dy) || 1;
+  return { x: point.x, y: point.y, nx: -dy / size, ny: dx / size };
+};
+const offsetPath = (offset) => {
+  const parts = [];
+  for (let i = 0; i < SAMPLES.length; i++) {
+    const a = SAMPLES[Math.max(0, i - 1)];
+    const b = SAMPLES[Math.min(SAMPLES.length - 1, i + 1)];
+    const size = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+    const nx = -(b[1] - a[1]) / size;
+    const ny = (b[0] - a[0]) / size;
+    parts.push(`${(SAMPLES[i][0] + nx * offset).toFixed(1)} ${(SAMPLES[i][1] + ny * offset).toFixed(1)}`);
+  }
+  return `M${parts.join("L")}`;
+};
+const LANE = 50;
+document.querySelector(".trail.y").setAttribute("d", offsetPath(LANE));
+document.querySelector(".trail.k").setAttribute("d", offsetPath(-LANE));
+
+const lengthNear = ([x, y]) => {
+  let best = 0;
+  let bestDistance = Infinity;
+  SAMPLES.forEach((sample, index) => {
+    const distance = Math.hypot(sample[0] - x, sample[1] - y);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      best = index;
+    }
+  });
+  return (best / 1600) * TOTAL;
+};
+const STOPS = POINTS.map(lengthNear);
+
+const deco = document.querySelector(".deco");
+deco.innerHTML = [
+  "M-200 600 C 1200 200, 2200 1100, 3600 500 S 6200 300, 8400 900",
+  "M-200 2900 C 1400 2500, 2600 3300, 4200 2800 S 6800 2600, 8400 3100",
+  "M1100 -200 C 900 900, 1900 1500, 1700 3600",
+  "M5200 -200 C 5600 800, 4700 1700, 5100 3600",
+].map((d) => `<path d="${d}"/>`).join("") + [[900, 700, 60], [2600, 600, 40], [4300, 3000, 70], [6900, 700, 50], [3000, 3100, 36], [7600, 2900, 54], [200, 1300, 40]].map(([cx, cy, r]) => `<circle cx="${cx}" cy="${cy}" r="${r}"/>`).join("");
+
+const stns = document.querySelector(".stns");
+STATIONS.forEach((station, index) => {
+  const point = at(STOPS[index + 1]);
+  const element = document.createElement("div");
+  element.className = `stn st${index}`;
+  element.style.left = `${point.x}px`;
+  element.style.top = `${point.y}px`;
+  element.innerHTML = `<img src="assets/fluent/${station.icon}_3d.png" alt=""><b>${station.label}</b>`;
+  stns.appendChild(element);
+});
+
+const cards = document.querySelector(".cards");
+const cardAt = (index, width, height, html, cls = "") => {
+  const point = at(STOPS[index]);
+  const element = document.createElement("div");
+  element.className = `wcard c${index} ${cls}`;
+  element.style.cssText = `left:${point.x - width / 2}px;top:${point.y - 210 - height}px;width:${width}px;height:${height}px`;
+  element.innerHTML = html;
+  cards.appendChild(element);
+  return element;
+};
+cardAt(1, 700, 480, `<div class="doc"><h4>서비스 기획서</h4><p class="row"><i></i>누가, 어떤 상황에서 쓰는지</p><p class="row"><i></i>고객이 끝내야 할 행동</p><p class="row"><i></i>첫 출시 범위</p></div>`);
+const wf = cardAt(2, 760, 480, `<div class="wf"></div>`);
+wf.querySelector(".wf").innerHTML = [
+  [44, 44, 200, 392, "on"], [290, 44, 200, 392, ""], [536, 44, 180, 392, ""],
+].map(([x, y, w, h, on]) => `<span class="box ${on}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></span>`).join("") + [
+  [70, 90, 140], [70, 130, 110], [70, 170, 150], [316, 80, 148], [316, 250, 120], [316, 290, 148], [562, 90, 128], [562, 130, 100],
+].map(([x, y, w]) => `<span class="ln" style="left:${x}px;top:${y}px;width:${w}px"></span>`).join("") + `<span class="ar" style="left:250px;top:236px;width:34px"></span><span class="ar" style="left:496px;top:236px;width:34px"></span>`;
+cardAt(3, 820, 560, `<div class="bar"><i></i><i></i><i></i><span>stayandjoy</span></div><img class="full" src="assets/stayjoy.jpg" alt="">`);
+cardAt(4, 760, 420, `<div class="code"><span class="k">async function</span> <span class="f">pay</span>(order) {<br>&nbsp;&nbsp;<span class="k">const</span> res = <span class="k">await</span> pg.<span class="f">charge</span>(order)<br>&nbsp;&nbsp;<span class="k">return</span> <span class="f">notify</span>(res, <span class="s">"결제 완료"</span>)<br>}</div>`);
+cardAt(5, 860, 590, `<div class="bar"><i></i><i></i><i></i><span>my-service.com</span></div><img class="full" src="assets/48694ab5af8ab393.webp" alt="">`);
+const phoneHost = document.createElement("div");
+phoneHost.className = "wphone c6";
+{
+  const point = at(STOPS[6]);
+  phoneHost.style.cssText = `left:${point.x - 220}px;top:${point.y - 210 - 900}px;width:440px;height:900px`;
+}
+phoneHost.innerHTML = `<div class="scr"><i class="island"></i><h5>내 서비스 알리기</h5><div class="ad"><div class="hd"><b>내</b><span>내 서비스<small>광고</small></span></div><div class="im">오늘부터<br>내 서비스에서</div><div class="ct">my-service.com<span>더 알아보기</span></div></div><div class="tg">메타 광고<i class="sw"><i class="on"></i><b></b></i></div><div class="tg">검색광고<i class="sw"><i class="on"></i><b></b></i></div></div>`;
+cards.appendChild(phoneHost);
+
+const okBadge = (index, text, icon, dx, dy) => {
+  const point = at(STOPS[index]);
+  const element = document.createElement("div");
+  element.className = `okb ok${index}`;
+  element.style.cssText = `left:${point.x + dx}px;top:${point.y + dy}px`;
+  element.innerHTML = `<img src="assets/fluent/${icon}_3d.png" alt="">${text}`;
+  cards.appendChild(element);
+};
+okBadge(4, "검수 완료", "check_mark_button", 150, -300);
+okBadge(5, "배포 완료", "check_mark_button", 190, -330);
+
+const wallPoint = at(STOPS[4] - 400);
+const wall = document.querySelector(".wall");
+wall.style.left = `${wallPoint.x}px`;
+wall.style.top = `${wallPoint.y}px`;
+const boom = document.querySelector(".boom");
+boom.style.left = `${wallPoint.x}px`;
+boom.style.top = `${wallPoint.y}px`;
+const pieces = document.querySelector(".pieces");
+for (let i = 0; i < 10; i++) {
+  const piece = document.createElement("span");
+  piece.className = "piece";
+  piece.style.left = `${wallPoint.x}px`;
+  piece.style.top = `${wallPoint.y}px`;
+  pieces.appendChild(piece);
+}
+const fxs = document.querySelector(".fxs");
+[["money_bag", 60, -560], ["bell", 300, -700], ["shopping_bags", 560, -520], ["sparkles", 180, -900], ["chart_increasing", 780, -760]].forEach(([icon, dx, dy], index) => {
+  const point = at(STOPS[6] + 300 + index * 120);
+  const element = document.createElement("img");
+  element.className = `fx f${index}`;
+  element.src = `assets/fluent/${icon}_3d.png`;
+  element.style.left = `${point.x + dx}px`;
+  element.style.top = `${point.y + dy + 200}px`;
+  fxs.appendChild(element);
+});
+const finish = at(STOPS[7]);
+const flag = document.querySelector(".flag");
+flag.style.left = `${finish.x + 60}px`;
+flag.style.top = `${finish.y - 120}px`;
+const popper = document.querySelector(".popper");
+popper.style.left = `${finish.x - 260}px`;
+popper.style.top = `${finish.y - 360}px`;
+const confs = document.querySelector(".confs");
+const CONF_COLORS = ["#ffc83d", "#f04452", "#3182f6", "#15b77e", "#8b5cf6", "#ff8a3d"];
+for (let i = 0; i < 26; i++) {
+  const element = document.createElement("span");
+  element.className = "conf";
+  element.style.background = CONF_COLORS[i % CONF_COLORS.length];
+  element.style.left = `${finish.x - 200}px`;
+  element.style.top = `${finish.y - 320}px`;
+  confs.appendChild(element);
+}
+
+const hexToRgb = (hex) => [1, 3, 5].map((index) => parseInt(hex.slice(index, index + 2), 16));
+const mixColor = (a, b, k) => `rgb(${a.map((value, index) => Math.round(value + (b[index] - value) * k)).join(",")})`;
+const INK = hexToRgb("#191f28");
+const PALETTE = ["#ff9f1a", "#ff6b3d", "#f04452", "#c2409f", "#8b5cf6", "#5b6cf6", "#3182f6"].map(hexToRgb);
+document.querySelectorAll(".gr").forEach((group) => {
+  const walker = document.createTreeWalker(group, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach((node) => {
+    const fragment = document.createDocumentFragment();
+    Array.from(node.textContent).forEach((character) => {
+      const span = document.createElement("span");
+      span.className = "ch";
+      span.textContent = character === " " ? " " : character;
+      fragment.appendChild(span);
+    });
+    node.replaceWith(fragment);
+  });
+});
+
+window.build = ({ tween, stagger, hooks, easings }) => {
+  const keyed = (keys, t, easing = "inOut") => {
+    if (t <= keys[0][0]) return keys[0][1];
+    for (let i = 0; i < keys.length - 1; i++) {
+      const [t0, v0, e0] = keys[i];
+      const [t1, v1] = keys[i + 1];
+      if (t <= t1) return v0 + (v1 - v0) * easings[e0 || easing]((t - t0) / (t1 - t0));
+    }
+    return keys[keys.length - 1][1];
+  };
+  const S = STOPS;
+  const yellowKeys = [
+    [0, S[0] + 120, "linear"], [2.3, S[0] + 640, "linear"], [4.9, S[1] - 520], [6.5, S[1] + 160], [7.95, S[2] + 160], [9.4, S[3] + 160],
+    [10.25, S[4] - 470, "out"], [10.55, S[4] - 530], [11.15, S[4] - 530, "in"], [11.45, S[4] - 470, "linear"], [11.6, S[4] - 440, "in"], [13.4, S[5] - 260],
+    [15.6, S[5] + 300], [19.2, S[6] + 420], [21.3, S[7] - 40, "out"], [26, S[7] - 40],
+  ];
+  const inkKeys = [
+    [0, S[0] + 120, "linear"], [2.3, S[0] + 640, "linear"], [4.9, S[1] - 520], [6.5, S[1] + 160], [7.95, S[2] + 160], [9.4, S[3] + 160],
+    [10.25, S[4] - 1000, "out"], [11.15, S[4] - 530, "in"], [11.45, S[4] - 470, "linear"], [11.6, S[4] - 440, "in"], [13.4, S[5] - 260],
+    [15.6, S[5] + 300], [19.2, S[6] + 420], [21.3, S[7] - 40, "out"], [26, S[7] - 40],
+  ];
+  const yellow = document.querySelector(".ball.y");
+  const tagY = document.querySelector(".tag.ty");
+  const tagK = document.querySelector(".tag.tk");
+  const ink = document.querySelector(".ball.k");
+  const world = document.querySelector(".world");
+  const trailY = document.querySelector(".trail.y");
+  const trailK = document.querySelector(".trail.k");
+  const glow = document.querySelector(".glow");
+  const zoomKeys = [[0, Math.log(1.55)], [2.2, Math.log(1.0)], [3.2, Math.log(0.235)], [4.6, Math.log(0.235)], [5.6, Math.log(0.6)], [9.3, Math.log(0.62)], [9.9, Math.log(0.95)], [12.4, Math.log(0.95)], [13.2, Math.log(0.62)], [19.4, Math.log(0.62)], [20.4, Math.log(0.82)], [21.4, Math.log(0.82)], [22.6, Math.log(0.215)], [26, Math.log(0.205)]];
+  const overviewKeys = [[0, 0], [2.2, 0], [3.2, 1], [4.6, 1], [5.6, 0], [21.4, 0], [22.6, 1], [26, 1]];
+  const overviewY = [[0, 1720], [6, 1720], [21, 1460], [26, 1460]];
+  const liftKeys = [[0, -60], [4.9, -60], [5.8, -270], [9.3, -270], [9.9, -120], [11.8, -120], [12.6, -280], [19.4, -280], [20.4, -170], [26, -170]];
+  hooks.push((t) => {
+    const sY = keyed(yellowKeys, t);
+    const sK = keyed(inkKeys, t);
+    const py = at(sY);
+    const pk = at(sK);
+    const bx = (py.x + LANE * py.nx + pk.x - LANE * pk.nx) / 2;
+    const byy = (py.y + LANE * py.ny + pk.y - LANE * pk.ny) / 2;
+    yellow.style.transform = `translate(${py.x + LANE * py.nx}px, ${py.y + LANE * py.ny}px)`;
+    ink.style.transform = `translate(${pk.x - LANE * pk.nx}px, ${pk.y - LANE * pk.ny}px)`;
+    tagY.style.transform = `translate(${py.x + (LANE + 100) * py.nx}px, ${py.y + (LANE + 100) * py.ny}px) translate(-50%, -50%)`;
+    tagK.style.transform = `translate(${pk.x - (LANE + 100) * pk.nx}px, ${pk.y - (LANE + 100) * pk.ny}px) translate(-50%, -50%)`;
+    trailY.style.strokeDasharray = "1 2";
+    trailY.style.strokeDashoffset = String(1 - sY / TOTAL);
+    trailK.style.strokeDasharray = "1 2";
+    trailK.style.strokeDashoffset = String(1 - sK / TOTAL);
+    const scale = Math.exp(keyed(zoomKeys, t));
+    const ov = keyed(overviewKeys, t);
+    const lead = 260 * (1 - ov);
+    const fx = (bx + lead) * (1 - ov) + 4000 * ov;
+    const fy = (byy + keyed(liftKeys, t)) * (1 - ov) + keyed(overviewY, t) * ov;
+    world.style.transform = `translate(${960 - fx * scale}px, ${560 - fy * scale}px) scale(${scale})`;
+    const g = Math.min(1, Math.max(0, (t - 2.9) / 1.5));
+    glow.style.strokeDasharray = `0.08 2`;
+    glow.style.strokeDashoffset = String(0.08 - easings.inOut(g) * 1.08);
+    glow.style.opacity = t > 2.9 && t < 4.6 ? 1 : 0;
+  });
+
+  const colorTweens = [];
+  const sweep = (selector, start, duration = 0.5) => {
+    const letters = [...document.querySelectorAll(`${selector} .ch`)];
+    letters.forEach((letter, index) => {
+      const target = PALETTE[Math.round((index / Math.max(letters.length - 1, 1)) * (PALETTE.length - 1))];
+      colorTweens.push({ element: letter, start: start + index * 0.035, duration, target });
+    });
+  };
+  hooks.push((t) => {
+    colorTweens.forEach(({ element, start, duration, target }) => {
+      const k = Math.min(1, Math.max(0, (t - start) / duration));
+      element.style.color = mixColor(INK, target, easings.out(k));
+    });
+  });
+  const wordsIn = (selector, start, gap = 0.07) => stagger(`${selector} .wd`, start, gap, 0.65, { opacity: [0, 1], y: [30, 0], blur: [16, 0] }, "expo");
+  const subIn = (selector, start, end) => {
+    tween(selector, start, 0.5, { opacity: [0, 1], y: [30, 0], blur: [10, 0] }, "expo");
+    tween(selector, end, 0.35, { opacity: [1, 0], y: [0, -16], blur: [0, 8] }, "in");
+  };
+
+  tween(".wd", -1, 0.01, { opacity: [0, 0] });
+  tween(".o1 .wd", -1, 0.01, { opacity: [1, 1] });
+  tween(".o1 .wd", -0.4, 0.6, { y: [24, 0], blur: [10, 0] }, "expo");
+  tween(".o1 .wd:nth-child(n+3)", -1, 0.01, { opacity: [0, 0] });
+  stagger(".o1 .wd:nth-child(n+3)", 0.75, 0.12, 0.6, { opacity: [0, 1], y: [30, 0], blur: [16, 0] }, "expo");
+  sweep(".o1 .gr", 1.0, 0.6);
+  tween(".o1", 2.25, 0.4, { opacity: [1, 0], y: [0, -30], blur: [0, 12] }, "in");
+
+  tween(".o2, .o2p", -1, 0.01, { opacity: [0, 0] });
+  tween(".o2", 3.0, 0.01, { opacity: [0, 1] });
+  wordsIn(".o2", 3.0, 0.08);
+  sweep(".o2 .gr", 3.4, 0.6);
+  tween(".o2p", 3.5, 0.6, { opacity: [0, 1], y: [20, 0], blur: [8, 0] }, "expo");
+  tween(".o2, .o2p", 4.85, 0.4, { opacity: [1, 0], y: [0, -24], blur: [0, 10] }, "in");
+
+  tween(".stn", -1, 0.01, { opacity: [0, 0] });
+  stagger(".stn", 3.0, 0.2, 0.55, { opacity: [0, 1], scale: [0.4, 1] }, "spring");
+
+  tween(".ov.sub", -1, 0.01, { opacity: [0, 0] });
+  subIn(".s1", 5.4, 7.5);
+  sweep(".s1 .gr", 5.7, 0.5);
+  subIn(".s2", 7.75, 9.35);
+  subIn(".s3", 9.7, 11.25);
+  sweep(".s3 .gr", 10.1, 0.5);
+  subIn(".s4", 11.45, 13.1);
+  sweep(".s4 .gr", 11.7, 0.5);
+  subIn(".s5", 13.5, 15.45);
+  sweep(".s5 .gr", 13.85, 0.5);
+  subIn(".s6", 15.75, 19.6);
+  sweep(".s6 .gr", 16.1, 0.6);
+
+  const cardsIn = [[".c1", 5.7], [".c2", 7.1], [".c3", 8.55], [".c4", 12.0], [".c5", 14.0], [".c6", 16.3]];
+  cardsIn.forEach(([selector, start]) => {
+    tween(selector, -1, 0.01, { opacity: [0, 0] });
+    tween(selector, start, 0.8, { opacity: [0, 1], y: [120, 0], scale: [0.9, 1] }, "expo");
+  });
+  tween(".ok4", -1, 0.01, { opacity: [0, 0] });
+  tween(".ok4", 12.6, 0.6, { opacity: [0, 1], scale: [0.6, 1] }, "spring");
+  tween(".ok5", -1, 0.01, { opacity: [0, 0] });
+  tween(".ok5", 14.9, 0.6, { opacity: [0, 1], scale: [0.6, 1] }, "spring");
+  document.querySelectorAll(".c6 .sw").forEach((toggle, index) => {
+    tween(toggle.querySelector("b"), 17.2 + index * 0.35, 0.35, { x: [0, 38] }, "spring");
+    tween(toggle.querySelector(".on"), 17.2 + index * 0.35, 0.25, { opacity: [0, 1] });
+  });
+  document.querySelectorAll(".fxs .fx").forEach((element, index) => {
+    tween(element, -1, 0.01, { opacity: [0, 0] });
+    tween(element, 17.6 + index * 0.28, 0.7, { opacity: [0, 1], y: [80, 0], scale: [0.4, 1] }, "spring");
+    tween(element, 18.3 + index * 0.28, 2.0, { y: [0, -60] }, "inOut");
+  });
+
+  tween(".wall", 11.6, 0.2, { opacity: [1, 0], scale: [1, 1.2] }, "out");
+  tween(".wall", 10.2, 0.08, { x: [0, 10] }, "out");
+  tween(".wall", 10.28, 0.25, { x: [10, 0] }, "spring");
+  tween(".wall", 11.3, 0.08, { x: [0, 14] }, "out");
+  tween(".wall", 11.38, 0.2, { x: [14, 0] }, "spring");
+  tween(".boom", -1, 0.01, { opacity: [0, 0] });
+  tween(".boom", 11.58, 0.5, { opacity: [0, 1], scale: [0.3, 1.15] }, "expo");
+  tween(".boom", 12.1, 0.4, { opacity: [1, 0], scale: [1.15, 1.3] }, "in");
+  document.querySelectorAll(".piece").forEach((piece, index) => {
+    const angle = (index / 10) * Math.PI * 2 + 0.3;
+    const distance = 260 + (index % 3) * 90;
+    tween(piece, -1, 0.01, { opacity: [0, 0] });
+    tween(piece, 11.58, 0.01, { opacity: [0, 1] });
+    tween(piece, 11.58, 0.9, { x: [0, Math.cos(angle) * distance], y: [0, Math.sin(angle) * distance - 80], rot: [0, (index % 2 ? 1 : -1) * 260] }, "out");
+    tween(piece, 12.2, 0.4, { opacity: [1, 0] }, "in");
+  });
+
+  [[2.3, 9.5], [13.0, 20.1], [22.3, 99]].forEach(([hideAt, showAt]) => {
+    tween(".tag", hideAt, 0.35, { opacity: [1, 0] }, "in");
+    if (showAt < 99) tween(".tag", showAt, 0.45, { opacity: [0, 1] }, "out");
+  });
+  tween(".flag", -1, 0.01, { opacity: [0, 0] });
+  tween(".flag", 19.6, 0.7, { opacity: [0, 1], scale: [0.4, 1], rot: [-12, 0] }, "spring");
+  tween(".popper", -1, 0.01, { opacity: [0, 0] });
+  tween(".popper", 20.9, 0.6, { opacity: [0, 1], scale: [0.4, 1], rot: [20, 0] }, "spring");
+  document.querySelectorAll(".conf").forEach((piece, index) => {
+    const angle = -Math.PI * (0.15 + 0.7 * ((index * 37) % 26) / 26);
+    const distance = 300 + ((index * 53) % 5) * 70;
+    tween(piece, -1, 0.01, { opacity: [0, 0] });
+    tween(piece, 21.0, 0.01, { opacity: [0, 1] });
+    tween(piece, 21.0, 1.3, { x: [0, Math.cos(angle) * distance + 120], y: [0, Math.sin(angle) * distance], rot: [0, ((index * 71) % 360) - 180] }, "out");
+    tween(piece, 22.0, 0.6, { opacity: [1, 0], y: [Math.sin(angle) * distance, Math.sin(angle) * distance + 120] }, "in");
+  });
+
+  tween(".o9", -1, 0.01, { opacity: [0, 0] });
+  tween(".o9", 22.55, 0.01, { opacity: [0, 1] });
+  wordsIn(".o9", 22.6, 0.12);
+  sweep(".o9 .gr", 23.0, 0.6);
+  tween(".o9", 23.85, 0.35, { opacity: [1, 0], y: [0, -20], blur: [0, 10] }, "in");
+  tween(".veil", 23.85, 0.6, { opacity: [0, 1] }, "out");
+  tween(".e1, .e2, .hero2, .endlogo, .url", -1, 0.01, { opacity: [0, 0] });
+  tween(".e2, .hero2", 24.0, 0.01, { opacity: [0, 1] });
+  tween(".e1", 24.0, 0.55, { opacity: [0, 1], y: [16, 0] }, "expo");
+  wordsIn(".e2", 24.1, 0.06);
+  wordsIn(".hero2", 24.35, 0.12);
+  sweep(".hero2 .gr", 24.55, 0.6);
+  tween(".endlogo", 24.85, 0.5, { opacity: [0, 1], y: [16, 0] }, "expo");
+  tween(".url", 25.0, 0.5, { opacity: [0, 1] }, "out");
+};
+</script>
+<script src="lib/engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+@font-face{font-family:"Pretendard";src:url(../assets/pretendard.woff2) format("woff2");font-weight:100 900}
+@font-face{font-family:"SCD";src:url(../assets/S-CoreDream-6Bold.woff) format("woff");font-weight:600}
+@font-face{font-family:"SCD";src:url(../assets/S-CoreDream-8Heavy.woff) format("woff");font-weight:800}
+@font-face{font-family:"SCD";src:url(../assets/S-CoreDream-9Black.woff) format("woff");font-weight:900}
+:root{--bg:#f2f3f5;--ink:#191f28;--ink2:#4e5968;--ink3:#8b95a1;--ink4:#b0b8c1;--line:#e5e8eb;--card:#fff;--yellow:#ffc83d;--orange:#ff8a3d;--red:#f04452;--purple:#8b5cf6;--blue:#3182f6;--green:#15b77e}
+*{box-sizing:border-box}
+p,h3,h4,h5{margin:0}
+html,body{margin:0;padding:0;background:#000;overflow:hidden}
+.stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:"Pretendard",sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased;letter-spacing:-.02em}
+.layer{position:absolute;inset:0}
+.t{position:absolute;white-space:nowrap;font-weight:700;color:var(--ink)}
+.c{left:0;right:0;text-align:center}
+.wd{display:inline-block}
+.ch{display:inline-block}
+.card{position:absolute;background:#fff;border-radius:28px;box-shadow:0 2px 6px rgba(25,31,40,.04),0 18px 48px -8px rgba(25,31,40,.12)}
+.shot{position:absolute;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 2px 6px rgba(25,31,40,.05),0 24px 60px -12px rgba(25,31,40,.18)}
+.shot .bar{height:36px;display:flex;align-items:center;gap:8px;padding:0 16px;background:#fff;border-bottom:1px solid #eef0f2}
+.shot .bar i{width:11px;height:11px;border-radius:50%;background:#e5e8eb}
+.shot .bar i:nth-child(1){background:#ff6159}.shot .bar i:nth-child(2){background:#ffbe2f}.shot .bar i:nth-child(3){background:#29c840}
+.shot .bar span{margin-left:14px;padding:2px 14px;border-radius:999px;background:#f2f4f6;font-weight:600;font-size:15px;color:var(--ink3);letter-spacing:0}
+.shot img{display:block;width:100%;height:calc(100% - 36px);object-fit:cover;object-position:top left}
+.phone{position:absolute;border-radius:64px;background:#0d0f14;padding:13px;box-shadow:0 0 0 2px #2b2f37 inset,0 40px 90px -20px rgba(25,31,40,.45)}
+.phone .scr{position:relative;width:100%;height:100%;border-radius:52px;background:#fff;overflow:hidden}
+.phone .island{position:absolute;left:50%;top:14px;width:118px;height:34px;margin-left:-59px;border-radius:20px;background:#0d0f14;z-index:5}
+.obj{position:absolute;width:220px;height:220px}
+.obj img{width:100%;height:100%}
+.logo-ink{filter:brightness(0)}

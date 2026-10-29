@@ -1,7 +1,7 @@
 # AI 교육 광고 시안 영상 원본
 
-- ad2a.html: 시안 A 끝까지 같이 하는 일들 (25초, 가로, lib/toss.css 사용)
-- ad2b.html: 시안 B 같이 굴러가는 길 (26초, 가로, lib/toss.css 사용)
+- ad2a.html: 시안 A 끝까지 같이 하는 일들 (29.5초, 가로, lib/toss.css 사용)
+- ad2b.html: 시안 B 같이 굴러가는 길 (29.5초, 가로, lib/toss.css 사용)
 - ad1b.html: 1안 두 번째 시안, 90%에서 멈추지 마세요 (30초, 가로)
 - plan1.html: 1안 실제 서비스 화면과 큰 글자 (30초)
 - plan2.html: 2안 선 그림 일러스트 (24초)

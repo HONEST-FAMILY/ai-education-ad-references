@@ -12,7 +12,12 @@
 .bk3{left:1240px;top:-220px;width:520px;height:520px;background:rgba(196,222,255,.9)}
 .bk4{left:240px;top:720px;width:460px;height:460px;background:rgba(232,220,255,.9)}
 
+.who{right:1068px;top:428px;font-size:46px;font-weight:600;line-height:1.2;color:var(--ink2)}
+.who b{color:var(--ink);font-weight:800}
 .lbl{right:1068px;top:503px;font-size:62px;line-height:1.2}
+.segs{position:absolute;right:1068px;top:606px;display:flex;gap:10px}
+.segs i{position:relative;width:58px;height:8px;border-radius:4px;background:#e2e6ea;overflow:hidden}
+.segs span{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:4px}
 .pk{position:absolute;left:908px;top:540px}
 .it{position:absolute;left:0;top:0;display:flex;align-items:center;gap:28px;transform-origin:0 50%;white-space:nowrap;will-change:transform}
 .it img{width:108px;height:108px}
@@ -73,7 +78,8 @@
 .endlogo{position:absolute;left:0;right:0;top:770px;text-align:center}
 .endlogo img{height:56px}
 .url{top:858px;font-size:30px;font-weight:600;color:var(--ink3)}
-.hero2{top:470px;font-family:"SCD","Pretendard",sans-serif;font-weight:800;font-size:116px;letter-spacing:-.03em}
+.e2 .em{font-size:1.3em;font-weight:800}
+.hero2{top:476px;font-family:"SCD","Pretendard",sans-serif;font-weight:800;font-size:106px;letter-spacing:-.03em}
 </style>
 </head>
 <body>
@@ -81,13 +87,16 @@
   <div class="pastel"><i class="bokeh bk1"></i><i class="bokeh bk2"></i><i class="bokeh bk3"></i><i class="bokeh bk4"></i></div>
 
   <div class="layer s1">
+    <p class="t who"><b>60여 개</b> 서비스를 만든 실무자가</p>
     <p class="t lbl">처음부터 끝까지, 같이</p>
+    <div class="segs"></div>
     <div class="pk"></div>
   </div>
 
   <div class="layer s2">
-    <div class="t c" style="top:330px"><span class="pill p2"><i></i>AI 부트캠프 1:1 제작 동행</span></div>
-    <p class="t c h2" style="top:470px;font-size:84px"><span class="wd">아이디어</span> <span class="wd">한</span> <span class="wd">줄부터,</span> <span class="wd gr">판매까지.</span></p>
+    <div class="t c" style="top:300px"><span class="pill p2"><i></i>AI 부트캠프 1:1 제작 동행</span></div>
+    <p class="t c h2a" style="top:420px;font-size:70px"><span class="wd">아이디어</span> <span class="wd">한</span> <span class="wd">줄로</span> <span class="wd">시작해서</span></p>
+    <p class="t c h2b" style="top:520px;font-size:100px;font-weight:800;letter-spacing:-.03em"><span class="wd gr">실제</span> <span class="wd gr">판매까지.</span></p>
   </div>
 
   <div class="layer s3">
@@ -138,32 +147,34 @@
 
   <div class="layer s6">
     <p class="t c e1" style="top:300px;font-size:46px;font-weight:600;color:var(--ink2)"><span class="wd">처음부터</span> <span class="wd">끝까지,</span> <span class="wd">같이</span> <span class="wd">만드는</span></p>
-    <p class="t c e2" style="top:372px;font-size:76px"><span class="wd">내</span> <span class="wd">아이디어를,</span> <span class="wd">판매할</span> <span class="wd">수</span> <span class="wd">있는</span></p>
-    <p class="t c hero2"><span class="wd gr">진짜</span> <span class="wd gr">서비스로.</span></p>
+    <p class="t c e2" style="top:364px;font-size:76px"><span class="wd">내</span> <span class="wd">아이디어를,</span> <span class="wd em gr">진짜</span> <span class="wd">판매할</span> <span class="wd">수</span> <span class="wd">있는</span></p>
+    <p class="t c hero2"><span class="wd">서비스로.</span></p>
     <div class="endlogo"><img class="logo-ink" src="assets/hf-logo.png" alt=""></div>
     <p class="t c url">honest-family.com/ai-education</p>
   </div>
 </div>
 <script>
-window.DURATION = 25;
+window.DURATION = 29.5;
 const ITEMS = [
-  ["light_bulb", "아이디어", "정리하기", "#f5a300"],
-  ["memo", "기획서", "쓰기", "#3182f6"],
-  ["triangular_ruler", "화면", "설계하기", "#f04452"],
-  ["artist_palette", "디자인", "입히기", "#8b5cf6"],
-  ["hammer_and_wrench", "기능", "만들기", "#4e5968"],
-  ["bug", "오류", "잡기", "#15b77e"],
-  ["credit_card", "결제", "붙이기", "#3182f6"],
+  ["light_bulb", "아이디어", " 정리하기", "#f5a300"],
+  ["memo", "기획서", " 쓰기", "#3182f6"],
+  ["artist_palette", "디자인", " 입히기", "#c2409f"],
+  ["hammer_and_wrench", "기능", " 만들기", "#5b6cf6"],
+  ["credit_card", "결제", " 붙이기", "#15b77e"],
   ["rocket", "출시", "하기", "#f04452"],
-  ["megaphone", "광고로", "고객 만나기", "#ff6b3d"],
+  ["megaphone", "광고로", " 고객 만나기", "#ff6b3d"],
 ];
 const picker = document.querySelector(".pk");
+const segs = document.querySelector(".segs");
 ITEMS.forEach(([icon, head, tail, color]) => {
   const item = document.createElement("div");
   item.className = "it";
   item.dataset.color = color;
-  item.innerHTML = `<img src="assets/fluent/${icon}_3d.png" alt=""><span class="tx"><b>${head}</b> ${tail}</span>`;
+  item.innerHTML = `<img src="assets/fluent/${icon}_3d.png" alt=""><span class="tx"><b>${head}</b>${tail}</span>`;
   picker.appendChild(item);
+  const seg = document.createElement("i");
+  seg.innerHTML = `<span style="background:${color}"></span>`;
+  segs.appendChild(seg);
 });
 
 const hexToRgb = (hex) => [1, 3, 5].map((index) => parseInt(hex.slice(index, index + 2), 16));
@@ -198,11 +209,13 @@ window.build = ({ tween, stagger, hooks, easings }) => {
       colorTweens.push({ element: letter, start: start + index * 0.035, duration, target });
     });
   };
-  const wordsIn = (selector, start, gap = 0.06) => stagger(`${selector} .wd`, start, gap, 0.65, { opacity: [0, 1], y: [30, 0], blur: [16, 0] }, "expo");
+  const WORD_IN = { opacity: [0, 1], y: [30, 0], blur: [16, 0] };
+  const wordsIn = (selector, start, gap = 0.06) => stagger(`${selector} .wd`, start, gap, 0.65, WORD_IN, "expo");
   const wordsOut = (selector, start) => tween(`${selector} .wd`, start, 0.38, { opacity: [1, 0], y: [0, -26], blur: [0, 12] }, "in");
 
   const items = [...picker.children];
-  const steps = [[0.30, 0.25], [0.55, 0.23], [0.78, 0.21], [0.99, 0.2], [1.19, 0.21], [1.40, 0.24], [1.64, 0.3], [1.94, 0.62]];
+  const fills = [...segs.querySelectorAll("span")];
+  const steps = [[1.0, 0.4], [2.05, 0.4], [3.1, 0.4], [4.15, 0.4], [5.2, 0.4], [6.25, 0.7]];
   const pickerValue = (t) => {
     let value = 0;
     steps.forEach(([start, duration], index) => {
@@ -228,6 +241,10 @@ window.build = ({ tween, stagger, hooks, easings }) => {
       item.querySelector(".tx").style.color = mixColor(GRAY, INK, focus);
       item.querySelector("b").style.color = mixColor(GRAY, hexToRgb(item.dataset.color), focus);
     });
+    fills.forEach((fill, index) => {
+      const amount = index === 0 ? Math.min(1, Math.max(0, (t + 0.2) / 0.8)) : Math.min(1, Math.max(0, p + 1 - index));
+      fill.style.width = `${amount * 100}%`;
+    });
     colorTweens.forEach(({ element, start, duration, target }) => {
       const k = Math.min(1, Math.max(0, (t - start) / duration));
       element.style.color = mixColor(INK, target, easings.out(k));
@@ -242,77 +259,80 @@ window.build = ({ tween, stagger, hooks, easings }) => {
     });
   });
   tween(".s1", -1, 0.01, { opacity: [1, 1] });
-  tween(".s1", 0, 3.6, { scale: [1, 1.04] }, "linear");
-  tween(".s1 .lbl", -0.2, 0.6, { x: [-24, 0] }, "expo");
+  tween(".s1", 0, 8.3, { scale: [1, 1.04] }, "linear");
+  tween(".s1 .who, .s1 .lbl, .segs", -0.2, 0.6, { x: [-24, 0] }, "expo");
   tween(".pk", -0.2, 0.6, { x: [24, 0] }, "expo");
-  tween(".s1", 3.55, 0.42, { opacity: [1, 0], y: [0, -60], blur: [0, 14] }, "in");
+  tween(".s1", 7.85, 0.42, { opacity: [1, 0], y: [0, -60], blur: [0, 14] }, "in");
 
-  tween(".s2", 3.8, 0.01, { opacity: [0, 1] });
-  tween(".p2", 3.8, 0.6, { opacity: [0, 1], y: [24, 0], blur: [10, 0] }, "expo");
-  wordsIn(".h2", 3.95, 0.09);
-  sweep(".h2 .gr", 4.35, 0.6);
-  tween(".s2", 6.45, 0.4, { opacity: [1, 0], y: [0, -50], blur: [0, 14] }, "in");
+  tween(".s2", 8.1, 0.01, { opacity: [0, 1] });
+  tween(".p2", 8.1, 0.6, { opacity: [0, 1], y: [24, 0], blur: [10, 0] }, "expo");
+  wordsIn(".h2a", 8.25, 0.08);
+  wordsIn(".h2b", 8.85, 0.12);
+  sweep(".h2b .gr", 9.1, 0.6);
+  tween(".s2", 10.95, 0.4, { opacity: [1, 0], y: [0, -50], blur: [0, 14] }, "in");
 
-  tween(".s3", 6.75, 0.01, { opacity: [0, 1] });
-  tween(".k3", 6.75, 0.6, { opacity: [0, 1], y: [20, 0] }, "expo");
-  wordsIn(".h3", 6.85, 0.06);
-  tween(".h3 .count", 7.0, 1.2, { count: [0, 60] }, "out");
-  sweep(".h3 .gr", 7.2, 0.6);
-  tween(".row", 6.75, 5.2, { x: [520, -1960] }, "linear");
-  stagger(".cell", 6.8, 0.07, 0.9, { opacity: [0, 1], y: [90, 0] }, "expo");
-  tween(".cap3", 7.4, 0.6, { opacity: [0, 1] });
-  tween(".s3", 11.55, 0.4, { opacity: [1, 0], blur: [0, 14] }, "in");
+  tween(".s3", 11.25, 0.01, { opacity: [0, 1] });
+  tween(".k3", 11.25, 0.6, { opacity: [0, 1], y: [20, 0] }, "expo");
+  wordsIn(".h3", 11.35, 0.06);
+  tween(".h3 .count", 11.5, 1.2, { count: [0, 60] }, "out");
+  sweep(".h3 .gr", 11.7, 0.6);
+  tween(".row", 11.25, 5.2, { x: [520, -1960] }, "linear");
+  stagger(".cell", 11.3, 0.07, 0.9, { opacity: [0, 1], y: [90, 0] }, "expo");
+  tween(".cap3", 11.9, 0.6, { opacity: [0, 1] });
+  tween(".s3", 16.05, 0.4, { opacity: [1, 0], blur: [0, 14] }, "in");
 
-  tween(".s4", 11.85, 0.01, { opacity: [0, 1] });
-  wordsIn(".h4", 11.9, 0.08);
-  sweep(".h4 .gr", 12.3, 0.6);
-  tween(".chat", 11.95, 0.7, { opacity: [0, 1], y: [70, 0], scale: [0.96, 1] }, "expo");
-  tween(".bugo", 12.2, 0.6, { opacity: [0, 1], scale: [0.6, 1], rot: [-18, 0] }, "spring");
-  tween(".msg.me", 12.45, 0.55, { opacity: [0, 1], y: [18, 0], scale: [0.92, 1] }, "expo");
-  tween(".typing", 12.95, 0.3, { opacity: [0, 1], scale: [0.9, 1] }, "out");
-  tween(".typing", 13.55, 0.15, { opacity: [1, 0] }, "in");
-  tween(".msg.hf", 13.62, 0.55, { opacity: [0, 1], y: [18, 0], scale: [0.92, 1] }, "expo");
-  tween(".bugo", 13.7, 0.45, { opacity: [1, 0], scale: [1, 0.2], rot: [0, 40], blur: [0, 8] }, "in");
-  tween(".prog", 14.2, 0.55, { opacity: [0, 1], y: [18, 0] }, "expo");
-  tween(".prog .tr span", 14.5, 1.0, { w: [72, 100] }, "inOut");
-  tween(".prog .pc", 14.5, 1.0, { count: [72, 100] }, "inOut");
+  tween(".s4", 16.35, 0.01, { opacity: [0, 1] });
+  wordsIn(".h4", 16.4, 0.08);
+  sweep(".h4 .gr", 16.8, 0.6);
+  tween(".chat", 16.45, 0.7, { opacity: [0, 1], y: [70, 0], scale: [0.96, 1] }, "expo");
+  tween(".bugo", 16.7, 0.6, { opacity: [0, 1], scale: [0.6, 1], rot: [-18, 0] }, "spring");
+  tween(".msg.me", 16.95, 0.55, { opacity: [0, 1], y: [18, 0], scale: [0.92, 1] }, "expo");
+  tween(".typing", 17.45, 0.3, { opacity: [0, 1], scale: [0.9, 1] }, "out");
+  tween(".typing", 18.05, 0.15, { opacity: [1, 0] }, "in");
+  tween(".msg.hf", 18.12, 0.55, { opacity: [0, 1], y: [18, 0], scale: [0.92, 1] }, "expo");
+  tween(".bugo", 18.2, 0.45, { opacity: [1, 0], scale: [1, 0.2], rot: [0, 40], blur: [0, 8] }, "in");
+  tween(".prog", 18.7, 0.55, { opacity: [0, 1], y: [18, 0] }, "expo");
+  tween(".prog .tr span", 19.0, 1.0, { w: [72, 100] }, "inOut");
+  tween(".prog .pc", 19.0, 1.0, { count: [72, 100] }, "inOut");
   tween(".prog .ok", -1, 0.01, { opacity: [0, 0] });
-  tween(".prog .ok", 15.45, 0.5, { opacity: [0, 1], scale: [0.4, 1] }, "spring");
-  tween(".rocketo", 15.35, 0.8, { opacity: [0, 1], y: [120, 0], scale: [0.6, 1], rot: [16, 0] }, "spring");
-  tween(".rocketo", 16.15, 0.6, { y: [0, -30] }, "inOut");
-  tween(".s4", 16.55, 0.4, { opacity: [1, 0], blur: [0, 14] }, "in");
+  tween(".prog .ok", 19.95, 0.5, { opacity: [0, 1], scale: [0.4, 1] }, "spring");
+  tween(".rocketo", 19.85, 0.8, { opacity: [0, 1], y: [120, 0], scale: [0.6, 1], rot: [16, 0] }, "spring");
+  tween(".rocketo", 20.65, 0.6, { y: [0, -30] }, "inOut");
+  tween(".s4", 21.05, 0.4, { opacity: [1, 0], blur: [0, 14] }, "in");
 
-  tween(".pastel", 16.6, 0.7, { opacity: [0, 1] }, "out");
-  tween(".bk1", 16.6, 5, { x: [0, 120], y: [0, 60] }, "linear");
-  tween(".bk2", 16.6, 5, { x: [0, -160], y: [0, -80] }, "linear");
-  tween(".bk3", 16.6, 5, { x: [0, -90], y: [0, 70] }, "linear");
-  tween(".s5", 16.75, 0.01, { opacity: [0, 1] });
-  tween(".p5", 16.75, 0.9, { opacity: [0, 1], y: [260, 0] }, "expo");
-  wordsIn(".side.l", 17.0, 0.08);
-  wordsIn(".side.r", 17.35, 0.1);
-  sweep(".side.r", 17.6, 0.6);
-  [[".o51", 16.9, -12], [".o52", 17.05, 10], [".o53", 17.15, -8], [".o54", 17.3, 12]].forEach(([selector, start, rot]) => {
+  tween(".pastel", 21.1, 0.7, { opacity: [0, 1] }, "out");
+  tween(".bk1", 21.1, 5, { x: [0, 120], y: [0, 60] }, "linear");
+  tween(".bk2", 21.1, 5, { x: [0, -160], y: [0, -80] }, "linear");
+  tween(".bk3", 21.1, 5, { x: [0, -90], y: [0, 70] }, "linear");
+  tween(".s5", 21.25, 0.01, { opacity: [0, 1] });
+  tween(".p5", 21.25, 0.9, { opacity: [0, 1], y: [260, 0] }, "expo");
+  wordsIn(".side.l", 21.5, 0.08);
+  wordsIn(".side.r", 21.85, 0.1);
+  sweep(".side.r", 22.1, 0.6);
+  [[".o51", 21.4, -12], [".o52", 21.55, 10], [".o53", 21.65, -8], [".o54", 21.8, 12]].forEach(([selector, start, rot]) => {
     tween(selector, start, 0.9, { opacity: [0, 1], scale: [0.5, 1], rot: [rot * 2, rot] }, "spring");
     tween(selector, start + 0.9, 3.4, { y: [0, rot > 0 ? -26 : 26], rot: [rot, -rot * 0.5] }, "inOut");
   });
-  tween(".o52, .o54", 16.9, 0.01, { blur: [5, 5] });
-  stagger(".tg", 17.3, 0.14, 0.55, { opacity: [0, 1], y: [24, 0] }, "expo");
+  tween(".o52, .o54", 21.4, 0.01, { blur: [5, 5] });
+  stagger(".tg", 21.8, 0.14, 0.55, { opacity: [0, 1], y: [24, 0] }, "expo");
   document.querySelectorAll(".p5 .sw").forEach((toggle, index) => {
-    tween(toggle.querySelector("b"), 17.95 + index * 0.3, 0.35, { x: [0, 38] }, "spring");
-    tween(toggle.querySelector(".on"), 17.95 + index * 0.3, 0.25, { opacity: [0, 1] });
+    tween(toggle.querySelector("b"), 22.45 + index * 0.3, 0.35, { x: [0, 38] }, "spring");
+    tween(toggle.querySelector(".on"), 22.45 + index * 0.3, 0.25, { opacity: [0, 1] });
   });
-  stagger(".p5 .cr", 18.55, 0.12, 0.55, { opacity: [0, 1], y: [26, 0] }, "expo");
-  tween(".noti", 19.35, 0.6, { opacity: [0, 1], y: [-90, 0] }, "spring");
-  tween(".s5", 20.75, 0.42, { opacity: [1, 0], blur: [0, 14] }, "in");
-  tween(".pastel", 20.85, 0.6, { opacity: [1, 0] }, "inOut");
+  stagger(".p5 .cr", 23.05, 0.12, 0.55, { opacity: [0, 1], y: [26, 0] }, "expo");
+  tween(".noti", 23.85, 0.6, { opacity: [0, 1], y: [-90, 0] }, "spring");
+  tween(".s5", 25.25, 0.42, { opacity: [1, 0], blur: [0, 14] }, "in");
+  tween(".pastel", 25.35, 0.6, { opacity: [1, 0] }, "inOut");
 
-  tween(".s6", 21.0, 0.01, { opacity: [0, 1] });
-  wordsIn(".e1", 21.05, 0.07);
-  wordsIn(".e2", 21.35, 0.07);
-  wordsIn(".hero2", 21.75, 0.14);
-  sweep(".hero2 .gr", 22.05, 0.7);
-  tween(".endlogo", 22.6, 0.6, { opacity: [0, 1], y: [20, 0] }, "expo");
-  tween(".url", 22.8, 0.6, { opacity: [0, 1] }, "out");
+  tween(".s6", 25.5, 0.01, { opacity: [0, 1] });
+  wordsIn(".e1", 25.55, 0.07);
+  stagger(".e2 .wd:not(.em)", 25.85, 0.07, 0.65, WORD_IN, "expo");
+  tween(".e2 .em", 26.35, 0.5, { opacity: [0, 1], blur: [14, 0] }, "expo");
+  tween(".e2 .em", 26.35, 0.7, { scale: [1.35, 1] }, "back");
+  sweep(".e2 .em", 26.4, 0.6);
+  wordsIn(".hero2", 26.65, 0.12);
+  tween(".endlogo", 27.1, 0.6, { opacity: [0, 1], y: [20, 0] }, "expo");
+  tween(".url", 27.3, 0.6, { opacity: [0, 1] }, "out");
 
   tween(".s2, .s3, .s4, .s5, .s6", -1, 0.01, { opacity: [0, 0] });
   tween(".p2, .k3, .cap3, .chat, .bugo, .msg, .typing, .prog, .rocketo, .p5, .o51, .o52, .o53, .o54, .tg, .p5 .cr, .noti, .endlogo, .url, .cell", -1, 0.01, { opacity: [0, 0] });

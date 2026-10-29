@@ -21,11 +21,11 @@
 .ball{position:absolute;left:0;top:0;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%}
 .ball.y{background:radial-gradient(circle at 34% 30%,#fffbe6 0,#ffe47a 16%,#ffc83d 46%,#e8a400 82%,#c98a00 100%);box-shadow:0 18px 26px -10px rgba(140,96,0,.55)}
 .ball.k{background:radial-gradient(circle at 34% 30%,#9aa3b0 0,#4a5260 18%,#232933 52%,#11151b 100%);box-shadow:0 18px 26px -10px rgba(0,0,0,.55)}
-.tag{position:absolute;left:0;top:0;padding:10px 22px;border-radius:999px;background:#fff;font-weight:700;font-size:32px;color:var(--ink);white-space:nowrap;box-shadow:0 10px 26px -8px rgba(25,31,40,.3)}
-.tag.tk{background:var(--ink);color:#fff}
 .stn{position:absolute;width:250px;height:250px;margin:-125px 0 0 -125px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(25,31,40,.05),0 30px 60px -16px rgba(25,31,40,.25);display:grid;place-items:center}
 .stn img{width:150px;height:150px}
 .stn b{position:absolute;left:50%;top:268px;transform:translateX(-50%);font-size:84px;font-weight:800;color:var(--ink);white-space:nowrap;letter-spacing:-.03em}
+.chk{position:absolute;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--green);box-shadow:0 10px 22px -8px rgba(21,183,126,.65)}
+.chk::after{content:"";position:absolute;left:23px;top:22px;width:28px;height:14px;border-left:7px solid #fff;border-bottom:7px solid #fff;transform:rotate(-45deg)}
 .wcard{position:absolute;background:#fff;border-radius:34px;overflow:hidden;box-shadow:0 2px 8px rgba(25,31,40,.05),0 40px 80px -20px rgba(25,31,40,.3)}
 .wcard .bar{height:46px;display:flex;align-items:center;gap:10px;padding:0 20px;border-bottom:1px solid #eef0f2}
 .wcard .bar i{width:14px;height:14px;border-radius:50%;background:#e5e8eb}
@@ -54,35 +54,64 @@
 .wphone .ad .hd{display:flex;align-items:center;gap:12px;padding:16px 18px;font-size:22px;font-weight:700}
 .wphone .ad .hd b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--yellow);font-size:18px;font-weight:800}
 .wphone .ad .hd small{display:block;font-size:16px;font-weight:600;color:var(--ink3)}
-.wphone .ad .im{height:300px;background:linear-gradient(160deg,#fff4c9,#ffc83d);display:flex;align-items:flex-end;padding:24px;font-size:36px;font-weight:800;line-height:1.25}
+.wphone .ad .im{height:250px;background:linear-gradient(160deg,#fff4c9,#ffc83d);display:flex;align-items:flex-end;padding:24px;font-size:36px;font-weight:800;line-height:1.25}
 .wphone .ad .ct{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;font-size:20px;font-weight:700}
 .wphone .ad .ct span{padding:8px 16px;border-radius:12px;background:var(--ink);color:#fff;font-size:18px}
 .wphone .tg{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding:18px 22px;border-radius:20px;background:#fff;font-size:24px;font-weight:700;box-shadow:0 8px 20px -10px rgba(25,31,40,.2)}
 .sw{position:relative;width:82px;height:44px;border-radius:22px;background:#d9dde2;flex:none}
 .sw .on{position:absolute;inset:0;border-radius:22px;background:var(--green);opacity:0}
 .sw b{position:absolute;left:5px;top:5px;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.2)}
-.wall{position:absolute;width:300px;height:300px;margin:-150px 0 0 -150px}
-.wall .bar2{position:absolute;left:30px;top:110px;width:240px;height:80px;border-radius:16px;background:repeating-linear-gradient(-45deg,#f04452 0 28px,#fff 28px 56px);box-shadow:0 18px 30px -12px rgba(240,68,82,.6)}
-.wall img{position:absolute;left:70px;top:-60px;width:160px;height:160px}
+.wall{position:absolute;width:0;height:0}
+.wall .bar2{position:absolute;left:-135px;top:-34px;width:270px;height:68px;border-radius:16px;background:repeating-linear-gradient(-45deg,#f04452 0 26px,#fff 26px 52px);box-shadow:0 14px 26px -10px rgba(240,68,82,.6)}
+.wlabel,.wfix{position:absolute;display:flex;align-items:center;gap:14px;padding:14px 30px 14px 18px;border-radius:999px;background:#fff;font-weight:800;font-size:44px;white-space:nowrap;box-shadow:0 18px 40px -14px rgba(25,31,40,.4);transform-origin:50% 100%}
+.wlabel{color:var(--red)}
+.wfix{color:var(--green)}
+.wlabel img,.wfix img{width:58px;height:58px}
 .piece{position:absolute;width:60px;height:36px;margin:-18px 0 0 -30px;border-radius:10px;background:repeating-linear-gradient(-45deg,#f04452 0 14px,#fff 14px 28px)}
 .boom{position:absolute;width:320px;height:320px;margin:-160px 0 0 -160px}
 .fx{position:absolute;width:120px;height:120px;margin:-60px 0 0 -60px}
 .flag{position:absolute;width:260px;height:260px;margin:-230px 0 0 -40px}
 .conf{position:absolute;width:26px;height:14px;margin:-7px 0 0 -13px;border-radius:4px}
 
+.tags{position:absolute;inset:0}
+.anc{position:absolute;left:0;top:0;width:0;height:0}
+.tg2{position:absolute;left:0;top:0;display:flex;align-items:center;gap:12px;padding:12px 26px 12px 18px;border-radius:999px;font-weight:700;font-size:30px;line-height:1.2;white-space:nowrap;box-shadow:0 12px 30px -10px rgba(25,31,40,.38)}
+.ak .tg2{transform-origin:50% 100%}
+.ay .tg2{transform-origin:100% 50%}
+.tg2.k{background:var(--ink);color:#fff}
+.tg2.y{background:#fff;color:var(--ink)}
+.tg2.stop{background:#fff;color:var(--ink2)}
+.tg2 .live{width:14px;height:14px;border-radius:50%;background:#2fd59a;box-shadow:0 0 0 5px rgba(47,213,154,.28)}
+.tg2 .dot{width:14px;height:14px;border-radius:50%;background:var(--yellow)}
+.tg2 img{width:36px;height:36px}
+.pause{position:relative;width:32px;height:32px;border-radius:50%;background:#9aa4af;flex:none}
+.pause::before,.pause::after{content:"";position:absolute;top:9px;width:5px;height:14px;border-radius:2px;background:#fff}
+.pause::before{left:10px}
+.pause::after{right:10px}
+.pt{position:absolute;left:-11px;top:-11px;width:22px;height:22px;border-radius:50%;background:#fff;border:6px solid #9aa4af}
+.pt.k{border-color:var(--ink)}
+.stem{position:absolute;left:-2px;top:11px;width:4px;height:100px;border-radius:2px;background:#b7bec7;transform-origin:50% 0}
+.stem.k{background:var(--ink)}
+.pl{position:absolute;left:0;top:100px;display:flex;align-items:center;gap:12px;padding:14px 30px 14px 18px;border-radius:999px;font-weight:700;font-size:34px;white-space:nowrap;box-shadow:0 14px 34px -12px rgba(25,31,40,.35)}
+.pl.solo{background:#fff;color:var(--ink2)}
+.pl.goal{background:var(--ink);color:#fff}
+.pl img{width:40px;height:40px}
+
 .ov{position:absolute;left:0;right:0;text-align:center;white-space:nowrap;font-weight:700;color:var(--ink)}
 .ov.big{top:120px;font-size:84px;letter-spacing:-.03em}
-.ov.big2{top:120px;font-size:66px;letter-spacing:-.03em}
+.ov.top{top:118px;font-size:76px;letter-spacing:-.03em}
+.ov .mute{color:#9aa4af}
 .ov.sub{bottom:50px}
 .ov.sub span.box{display:inline-block;padding:20px 40px;border-radius:999px;background:rgba(255,255,255,.92);font-size:44px;box-shadow:0 14px 40px -14px rgba(25,31,40,.28)}
-.pillw{position:absolute;left:0;right:0;top:236px;text-align:center}
+.pillw{position:absolute;left:0;right:0;text-align:center}
 .pill{display:inline-flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;background:var(--ink);font-weight:700;font-size:32px;color:#fff;white-space:nowrap}
 .pill i{width:14px;height:14px;border-radius:50%;background:var(--yellow)}
-.veil{position:absolute;inset:0;background:rgba(242,243,245,.86);opacity:0}
+.veil{position:absolute;inset:0;background:rgba(242,243,245,.88);opacity:0}
+.e2 .em{font-size:1.3em;font-weight:800}
 .endlogo{position:absolute;left:0;right:0;top:760px;text-align:center}
 .endlogo img{height:56px}
 .url{top:850px;font-size:30px;font-weight:600;color:var(--ink3)}
-.hero2{top:450px;font-family:"SCD","Pretendard",sans-serif;font-weight:800;font-size:116px;letter-spacing:-.03em}
+.hero2{top:470px;font-family:"SCD","Pretendard",sans-serif;font-weight:800;font-size:106px;letter-spacing:-.03em}
 </style>
 </head>
 <body>
@@ -100,7 +129,9 @@
     </svg>
     <div class="cards"></div>
     <div class="stns"></div>
-    <div class="wall"><span class="bar2"></span><img src="assets/fluent/construction_3d.png" alt=""></div>
+    <div class="wall"><span class="bar2"></span></div>
+    <div class="wlabel"><img src="assets/fluent/warning_3d.png" alt="">결제 오류</div>
+    <div class="wfix"><img src="assets/fluent/check_mark_button_3d.png" alt="">결제 오류 해결</div>
     <img class="boom" src="assets/fluent/collision_3d.png" alt="">
     <div class="pieces"></div>
     <div class="fxs"></div>
@@ -109,29 +140,35 @@
     <div class="confs"></div>
     <div class="ball k"></div>
     <div class="ball y"></div>
-    <span class="tag tk">1:1 실무자</span>
-    <span class="tag ty">내 아이디어</span>
+  </div>
+
+  <div class="tags">
+    <div class="anc ak"><span class="tg2 k t-on"><i class="live"></i>1:1 실무자 동행</span><span class="tg2 k t-say"><img src="assets/fluent/speech_balloon_3d.png" alt="">원인 찾았어요</span></div>
+    <div class="anc ay"><span class="tg2 y t-idea"><i class="dot"></i>내 아이디어</span><span class="tg2 stop t-stop"><i class="pause"></i>여기서 멈춤</span></div>
+    <div class="anc ap1"><i class="stem"></i><i class="pt"></i><span class="pl solo"><i class="pause"></i>혼자 하면, 여기서 멈춤</span></div>
+    <div class="anc ap2"><i class="stem k"></i><i class="pt k"></i><span class="pl goal"><img src="assets/fluent/chequered_flag_3d.png" alt="">같이 하면, 끝까지</span></div>
   </div>
 
   <p class="ov big o1"><span class="wd">처음부터</span> <span class="wd">끝까지,</span> <span class="wd gr">같이</span> <span class="wd gr">갑니다.</span></p>
-  <p class="ov big2 o2"><span class="wd">아이디어</span> <span class="wd">한</span> <span class="wd">줄부터</span> <span class="wd gr">판매까지</span></p>
-  <div class="pillw o2p"><span class="pill"><i></i>AI 부트캠프 1:1 제작 동행</span></div>
+  <div class="pillw o2p" style="top:92px"><span class="pill"><i></i>AI 부트캠프 1:1 제작 동행</span></div>
+  <p class="ov o2a" style="top:176px;font-size:56px"><span class="wd">아이디어</span> <span class="wd">한</span> <span class="wd">줄로</span> <span class="wd">시작해서</span></p>
+  <p class="ov o2b" style="top:246px;font-size:86px;font-weight:800;letter-spacing:-.03em"><span class="wd gr">실제</span> <span class="wd gr">판매까지.</span></p>
   <p class="ov sub s1"><span class="box">스타트업부터 대기업까지, <span class="gr">60여 개</span>를 만든 실무자가</span></p>
   <p class="ov sub s2"><span class="box">기획부터 디자인까지, 매 단계 옆에서</span></p>
-  <p class="ov sub s3"><span class="box">혼자라면 <span class="gr">멈췄을</span> 구간도</span></p>
-  <p class="ov sub s4"><span class="box"><span class="gr">같이</span> 넘어갑니다</span></p>
+  <p class="ov top s3"><span class="wd">혼자</span> <span class="wd">하면,</span> <span class="wd">여기서</span> <span class="wd mute">멈춥니다</span></p>
+  <p class="ov top s4"><span class="wd">같이</span> <span class="wd">하면,</span> <span class="wd gr">뚫고</span> <span class="wd gr">갑니다</span></p>
   <p class="ov sub s5"><span class="box">출시까지, <span class="gr">끝까지</span></span></p>
   <p class="ov sub s6"><span class="box">만들고 끝이 아니라, <span class="gr">고객을 데려오는 광고까지</span></span></p>
   <div class="veil"></div>
   <p class="ov big o9" style="top:96px"><span class="wd">처음부터</span> <span class="wd">끝까지,</span> <span class="wd gr">같이.</span></p>
   <div class="pillw e1" style="top:290px"><span class="pill"><i></i>AI 부트캠프 1:1 제작 동행</span></div>
-  <p class="ov e2" style="top:380px;font-size:76px"><span class="wd">내</span> <span class="wd">아이디어를,</span> <span class="wd">판매할</span> <span class="wd">수</span> <span class="wd">있는</span></p>
-  <p class="ov hero2"><span class="wd gr">진짜</span> <span class="wd gr">서비스로.</span></p>
+  <p class="ov e2" style="top:366px;font-size:76px"><span class="wd">내</span> <span class="wd">아이디어를,</span> <span class="wd em gr">진짜</span> <span class="wd">판매할</span> <span class="wd">수</span> <span class="wd">있는</span></p>
+  <p class="ov hero2"><span class="wd">서비스로.</span></p>
   <div class="endlogo"><img class="logo-ink" src="assets/hf-logo.png" alt=""></div>
   <p class="ov url">honest-family.com/ai-education</p>
 </div>
 <script>
-window.DURATION = 26;
+window.DURATION = 29.5;
 const POINTS = [[600, 1950], [1500, 1350], [2500, 2050], [3500, 1300], [4500, 2000], [5500, 1300], [6500, 1950], [7400, 1500]];
 const STATIONS = [
   { label: "기획", icon: "memo" },
@@ -159,48 +196,57 @@ const ROAD = smoothPath(POINTS);
 document.querySelectorAll(".roads path").forEach((path) => path.setAttribute("d", ROAD));
 const probe = document.querySelector(".road-top");
 const TOTAL = probe.getTotalLength();
+const SAMPLE_COUNT = 1600;
 const SAMPLES = [];
-for (let i = 0; i <= 1600; i++) {
-  const point = probe.getPointAtLength((i / 1600) * TOTAL);
+for (let i = 0; i <= SAMPLE_COUNT; i++) {
+  const point = probe.getPointAtLength((i / SAMPLE_COUNT) * TOTAL);
   SAMPLES.push([point.x, point.y]);
 }
-const at = (length) => {
-  const clamped = Math.min(TOTAL, Math.max(0, length));
-  const point = probe.getPointAtLength(clamped);
-  const ahead = probe.getPointAtLength(Math.min(TOTAL, clamped + 4));
-  const behind = probe.getPointAtLength(Math.max(0, clamped - 4));
-  const dx = ahead.x - behind.x;
-  const dy = ahead.y - behind.y;
+const sample = (length) => {
+  const position = (Math.min(TOTAL, Math.max(0, length)) / TOTAL) * SAMPLE_COUNT;
+  const index = Math.min(SAMPLE_COUNT - 1, Math.floor(position));
+  const fraction = position - index;
+  const a = SAMPLES[index];
+  const b = SAMPLES[index + 1];
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
   const size = Math.hypot(dx, dy) || 1;
-  return { x: point.x, y: point.y, nx: -dy / size, ny: dx / size };
+  return { x: a[0] + dx * fraction, y: a[1] + dy * fraction, tx: dx / size, ty: dy / size, nx: -dy / size, ny: dx / size };
 };
-const offsetPath = (offset) => {
-  const parts = [];
-  for (let i = 0; i < SAMPLES.length; i++) {
-    const a = SAMPLES[Math.max(0, i - 1)];
-    const b = SAMPLES[Math.min(SAMPLES.length - 1, i + 1)];
-    const size = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
-    const nx = -(b[1] - a[1]) / size;
-    const ny = (b[0] - a[0]) / size;
-    parts.push(`${(SAMPLES[i][0] + nx * offset).toFixed(1)} ${(SAMPLES[i][1] + ny * offset).toFixed(1)}`);
-  }
-  return `M${parts.join("L")}`;
-};
+const lanePoints = (offset) => SAMPLES.map((point, i) => {
+  const a = SAMPLES[Math.max(0, i - 1)];
+  const b = SAMPLES[Math.min(SAMPLES.length - 1, i + 1)];
+  const size = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+  return [point[0] - ((b[1] - a[1]) / size) * offset, point[1] + ((b[0] - a[0]) / size) * offset];
+});
+const laneLengths = (points) => points.reduce((lengths, point, i) => {
+  lengths.push(i === 0 ? 0 : lengths[i - 1] + Math.hypot(point[0] - points[i - 1][0], point[1] - points[i - 1][1]));
+  return lengths;
+}, []);
 const LANE = 50;
-document.querySelector(".trail.y").setAttribute("d", offsetPath(LANE));
-document.querySelector(".trail.k").setAttribute("d", offsetPath(-LANE));
+const LANE_Y = lanePoints(LANE);
+const LANE_K = lanePoints(-LANE);
+const LANE_Y_LENGTHS = laneLengths(LANE_Y);
+const LANE_K_LENGTHS = laneLengths(LANE_K);
+const laneFraction = (lengths, length) => {
+  const position = (Math.min(TOTAL, Math.max(0, length)) / TOTAL) * SAMPLE_COUNT;
+  const index = Math.min(SAMPLE_COUNT - 1, Math.floor(position));
+  return (lengths[index] + (lengths[index + 1] - lengths[index]) * (position - index)) / lengths[SAMPLE_COUNT];
+};
+document.querySelector(".trail.y").setAttribute("d", `M${LANE_Y.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join("L")}`);
+document.querySelector(".trail.k").setAttribute("d", `M${LANE_K.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join("L")}`);
 
 const lengthNear = ([x, y]) => {
   let best = 0;
   let bestDistance = Infinity;
-  SAMPLES.forEach((sample, index) => {
-    const distance = Math.hypot(sample[0] - x, sample[1] - y);
+  SAMPLES.forEach((point, index) => {
+    const distance = Math.hypot(point[0] - x, point[1] - y);
     if (distance < bestDistance) {
       bestDistance = distance;
       best = index;
     }
   });
-  return (best / 1600) * TOTAL;
+  return (best / SAMPLE_COUNT) * TOTAL;
 };
 const STOPS = POINTS.map(lengthNear);
 
@@ -214,59 +260,65 @@ deco.innerHTML = [
 
 const stns = document.querySelector(".stns");
 STATIONS.forEach((station, index) => {
-  const point = at(STOPS[index + 1]);
+  const point = sample(STOPS[index + 1]);
   const element = document.createElement("div");
   element.className = `stn st${index}`;
   element.style.left = `${point.x}px`;
   element.style.top = `${point.y}px`;
   element.innerHTML = `<img src="assets/fluent/${station.icon}_3d.png" alt=""><b>${station.label}</b>`;
   stns.appendChild(element);
+  const check = document.createElement("i");
+  check.className = `chk chk${index}`;
+  check.style.left = `${point.x - 92}px`;
+  check.style.top = `${point.y - 92}px`;
+  stns.appendChild(check);
 });
 
 const cards = document.querySelector(".cards");
-const cardAt = (index, width, height, html, cls = "") => {
-  const point = at(STOPS[index]);
+const CARD_GAP = 250;
+const cardAt = (index, width, height, html, className = "wcard", dx = 0) => {
+  const point = sample(STOPS[index]);
+  const left = point.x - width / 2 + dx;
+  const top = point.y - CARD_GAP - height;
   const element = document.createElement("div");
-  element.className = `wcard c${index} ${cls}`;
-  element.style.cssText = `left:${point.x - width / 2}px;top:${point.y - 210 - height}px;width:${width}px;height:${height}px`;
+  element.className = `${className} c${index}`;
+  element.style.cssText = `left:${left}px;top:${top}px;width:${width}px;height:${height}px`;
   element.innerHTML = html;
   cards.appendChild(element);
-  return element;
+  return { element, left, top, width, height };
 };
 cardAt(1, 700, 480, `<div class="doc"><h4>서비스 기획서</h4><p class="row"><i></i>누가, 어떤 상황에서 쓰는지</p><p class="row"><i></i>고객이 끝내야 할 행동</p><p class="row"><i></i>첫 출시 범위</p></div>`);
-const wf = cardAt(2, 760, 480, `<div class="wf"></div>`);
-wf.querySelector(".wf").innerHTML = [
+const wireframe = cardAt(2, 760, 480, `<div class="wf"></div>`);
+wireframe.element.querySelector(".wf").innerHTML = [
   [44, 44, 200, 392, "on"], [290, 44, 200, 392, ""], [536, 44, 180, 392, ""],
 ].map(([x, y, w, h, on]) => `<span class="box ${on}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></span>`).join("") + [
   [70, 90, 140], [70, 130, 110], [70, 170, 150], [316, 80, 148], [316, 250, 120], [316, 290, 148], [562, 90, 128], [562, 130, 100],
 ].map(([x, y, w]) => `<span class="ln" style="left:${x}px;top:${y}px;width:${w}px"></span>`).join("") + `<span class="ar" style="left:250px;top:236px;width:34px"></span><span class="ar" style="left:496px;top:236px;width:34px"></span>`;
 cardAt(3, 820, 560, `<div class="bar"><i></i><i></i><i></i><span>stayandjoy</span></div><img class="full" src="assets/stayjoy.jpg" alt="">`);
-cardAt(4, 760, 420, `<div class="code"><span class="k">async function</span> <span class="f">pay</span>(order) {<br>&nbsp;&nbsp;<span class="k">const</span> res = <span class="k">await</span> pg.<span class="f">charge</span>(order)<br>&nbsp;&nbsp;<span class="k">return</span> <span class="f">notify</span>(res, <span class="s">"결제 완료"</span>)<br>}</div>`);
-cardAt(5, 860, 590, `<div class="bar"><i></i><i></i><i></i><span>my-service.com</span></div><img class="full" src="assets/48694ab5af8ab393.webp" alt="">`);
-const phoneHost = document.createElement("div");
-phoneHost.className = "wphone c6";
-{
-  const point = at(STOPS[6]);
-  phoneHost.style.cssText = `left:${point.x - 220}px;top:${point.y - 210 - 900}px;width:440px;height:900px`;
-}
-phoneHost.innerHTML = `<div class="scr"><i class="island"></i><h5>내 서비스 알리기</h5><div class="ad"><div class="hd"><b>내</b><span>내 서비스<small>광고</small></span></div><div class="im">오늘부터<br>내 서비스에서</div><div class="ct">my-service.com<span>더 알아보기</span></div></div><div class="tg">메타 광고<i class="sw"><i class="on"></i><b></b></i></div><div class="tg">검색광고<i class="sw"><i class="on"></i><b></b></i></div></div>`;
-cards.appendChild(phoneHost);
+const codeCard = cardAt(4, 760, 420, `<div class="code"><span class="k">async function</span> <span class="f">pay</span>(order) {<br>&nbsp;&nbsp;<span class="k">const</span> res = <span class="k">await</span> pg.<span class="f">charge</span>(order)<br>&nbsp;&nbsp;<span class="k">return</span> <span class="f">notify</span>(res, <span class="s">"결제 완료"</span>)<br>}</div>`);
+const siteCard = cardAt(5, 860, 590, `<div class="bar"><i></i><i></i><i></i><span>my-service.com</span></div><img class="full" src="assets/48694ab5af8ab393.webp" alt="">`);
+cardAt(6, 440, 820, `<div class="scr"><i class="island"></i><h5>내 서비스 알리기</h5><div class="ad"><div class="hd"><b>내</b><span>내 서비스<small>광고</small></span></div><div class="im">오늘부터<br>내 서비스에서</div><div class="ct">my-service.com<span>더 알아보기</span></div></div><div class="tg">메타 광고<i class="sw"><i class="on"></i><b></b></i></div><div class="tg">검색광고<i class="sw"><i class="on"></i><b></b></i></div></div>`, "wphone", -110);
 
-const okBadge = (index, text, icon, dx, dy) => {
-  const point = at(STOPS[index]);
+const okBadge = (index, text, rect) => {
   const element = document.createElement("div");
   element.className = `okb ok${index}`;
-  element.style.cssText = `left:${point.x + dx}px;top:${point.y + dy}px`;
-  element.innerHTML = `<img src="assets/fluent/${icon}_3d.png" alt="">${text}`;
+  element.style.cssText = `left:${rect.left + rect.width - 80}px;top:${rect.top + 4}px`;
+  element.innerHTML = `<img src="assets/fluent/check_mark_button_3d.png" alt="">${text}`;
   cards.appendChild(element);
 };
-okBadge(4, "검수 완료", "check_mark_button", 150, -300);
-okBadge(5, "배포 완료", "check_mark_button", 190, -330);
+okBadge(4, "검수 완료", codeCard);
+okBadge(5, "배포 완료", siteCard);
 
-const wallPoint = at(STOPS[4] - 400);
+const WALL = STOPS[4] - 400;
+const wallPoint = sample(WALL);
 const wall = document.querySelector(".wall");
 wall.style.left = `${wallPoint.x}px`;
 wall.style.top = `${wallPoint.y}px`;
+wall.querySelector(".bar2").style.transform = `rotate(${Math.atan2(wallPoint.ty, wallPoint.tx) + Math.PI / 2}rad)`;
+document.querySelectorAll(".wlabel, .wfix").forEach((label) => {
+  label.style.left = `${wallPoint.x}px`;
+  label.style.top = `${wallPoint.y - 270}px`;
+});
 const boom = document.querySelector(".boom");
 boom.style.left = `${wallPoint.x}px`;
 boom.style.top = `${wallPoint.y}px`;
@@ -280,7 +332,7 @@ for (let i = 0; i < 10; i++) {
 }
 const fxs = document.querySelector(".fxs");
 [["money_bag", 60, -560], ["bell", 300, -700], ["shopping_bags", 560, -520], ["sparkles", 180, -900], ["chart_increasing", 780, -760]].forEach(([icon, dx, dy], index) => {
-  const point = at(STOPS[6] + 300 + index * 120);
+  const point = sample(STOPS[6] + 300 + index * 120);
   const element = document.createElement("img");
   element.className = `fx f${index}`;
   element.src = `assets/fluent/${icon}_3d.png`;
@@ -288,7 +340,7 @@ const fxs = document.querySelector(".fxs");
   element.style.top = `${point.y + dy + 200}px`;
   fxs.appendChild(element);
 });
-const finish = at(STOPS[7]);
+const finish = sample(STOPS[7]);
 const flag = document.querySelector(".flag");
 flag.style.left = `${finish.x + 60}px`;
 flag.style.top = `${finish.y - 120}px`;
@@ -326,62 +378,188 @@ document.querySelectorAll(".gr").forEach((group) => {
   });
 });
 
-window.build = ({ tween, stagger, hooks, easings }) => {
-  const keyed = (keys, t, easing = "inOut") => {
-    if (t <= keys[0][0]) return keys[0][1];
-    for (let i = 0; i < keys.length - 1; i++) {
-      const [t0, v0, e0] = keys[i];
-      const [t1, v1] = keys[i + 1];
-      if (t <= t1) return v0 + (v1 - v0) * easings[e0 || easing]((t - t0) / (t1 - t0));
+const monotone = (keys) => {
+  const xs = keys.map((key) => key[0]);
+  const ys = keys.map((key) => key[1]);
+  const count = keys.length;
+  const slopes = [];
+  for (let i = 0; i < count - 1; i++) slopes.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  const tangents = [slopes[0]];
+  for (let i = 1; i < count - 1; i++) tangents.push(slopes[i - 1] * slopes[i] <= 0 ? 0 : (slopes[i - 1] + slopes[i]) / 2);
+  tangents.push(slopes[count - 2]);
+  for (let i = 0; i < count - 1; i++) {
+    if (slopes[i] === 0) {
+      tangents[i] = 0;
+      tangents[i + 1] = 0;
+      continue;
     }
-    return keys[keys.length - 1][1];
+    const a = tangents[i] / slopes[i];
+    const b = tangents[i + 1] / slopes[i];
+    const size = a * a + b * b;
+    if (size > 9) {
+      const k = 3 / Math.sqrt(size);
+      tangents[i] = k * a * slopes[i];
+      tangents[i + 1] = k * b * slopes[i];
+    }
+  }
+  return (x) => {
+    if (x <= xs[0]) return ys[0];
+    if (x >= xs[count - 1]) return ys[count - 1];
+    let i = 0;
+    while (x > xs[i + 1]) i++;
+    const h = xs[i + 1] - xs[i];
+    const p = (x - xs[i]) / h;
+    const p2 = p * p;
+    const p3 = p2 * p;
+    return (2 * p3 - 3 * p2 + 1) * ys[i] + (p3 - 2 * p2 + p) * h * tangents[i] + (-2 * p3 + 3 * p2) * ys[i + 1] + (p3 - p2) * h * tangents[i + 1];
   };
+};
+
+window.build = ({ tween, stagger, hooks, easings }) => {
   const S = STOPS;
-  const yellowKeys = [
-    [0, S[0] + 120, "linear"], [2.3, S[0] + 640, "linear"], [4.9, S[1] - 520], [6.5, S[1] + 160], [7.95, S[2] + 160], [9.4, S[3] + 160],
-    [10.25, S[4] - 470, "out"], [10.55, S[4] - 530], [11.15, S[4] - 530, "in"], [11.45, S[4] - 470, "linear"], [11.6, S[4] - 440, "in"], [13.4, S[5] - 260],
-    [15.6, S[5] + 300], [19.2, S[6] + 420], [21.3, S[7] - 40, "out"], [26, S[7] - 40],
-  ];
-  const inkKeys = [
-    [0, S[0] + 120, "linear"], [2.3, S[0] + 640, "linear"], [4.9, S[1] - 520], [6.5, S[1] + 160], [7.95, S[2] + 160], [9.4, S[3] + 160],
-    [10.25, S[4] - 1000, "out"], [11.15, S[4] - 530, "in"], [11.45, S[4] - 470, "linear"], [11.6, S[4] - 440, "in"], [13.4, S[5] - 260],
-    [15.6, S[5] + 300], [19.2, S[6] + 420], [21.3, S[7] - 40, "out"], [26, S[7] - 40],
-  ];
+  const DUR = window.DURATION;
+  const STOP_AT = WALL - 333;
+  const CONTACT = WALL - 74;
+  const BOUNCE = CONTACT - 78;
+  const BREAK_AT = CONTACT + 20;
+  const SOLO_HIT = 12.35;
+  const PUSH_HIT = 14.95;
+  const BREAK = 15.05;
+
+  const cruiseA = monotone([[0, 150], [2.6, 430], [5.4, 740], [6.4, 870], [7.2, S[1]], [8.75, S[2]], [10.3, S[3]], [11.5, STOP_AT], [11.9, STOP_AT]]);
+  const cruiseB = monotone([[BREAK, BREAK_AT], [15.9, S[4]], [17.5, S[5]], [19.15, S[6]], [20.6, S[7] - 320], [21.5, S[7] - 40], [DUR, S[7] - 40]]);
+  const span = (t, t0, t1, s0, s1, ease) => s0 + (s1 - s0) * ease(Math.min(1, Math.max(0, (t - t0) / (t1 - t0))));
+  const easeIn = (p) => p * p;
+  const easeOut = (p) => 1 - (1 - p) * (1 - p);
+  const together = (t) => {
+    if (t < PUSH_HIT) return span(t, 14.6, PUSH_HIT, BOUNCE, CONTACT, easeIn);
+    if (t < BREAK) return span(t, PUSH_HIT, BREAK, CONTACT, BREAK_AT, (p) => p);
+    return cruiseB(t);
+  };
+  const yellowS = (t) => {
+    if (t < 11.9) return cruiseA(t);
+    if (t < SOLO_HIT) return span(t, 11.9, SOLO_HIT, STOP_AT, CONTACT, easeIn);
+    if (t < 12.8) return span(t, SOLO_HIT, 12.8, CONTACT, BOUNCE, easeOut);
+    if (t < 14.6) return BOUNCE;
+    return together(t);
+  };
+  const inkS = (t) => {
+    if (t < 13.8) return cruiseA(t);
+    if (t < 14.6) return span(t, 13.8, 14.35, STOP_AT, BOUNCE, easings.inOut);
+    return together(t);
+  };
+  const pairS = (t) => Math.min(yellowS(t), inkS(t));
+  const crossing = (target) => {
+    for (let time = 0; time <= DUR; time += 0.01) if (pairS(time) >= target) return time;
+    return DUR;
+  };
+  const squash = (t, hits) => hits.reduce((value, hit) => {
+    const d = t - hit;
+    return d >= 0 && d < 0.45 ? value + Math.exp(-d * 9) * Math.cos(d * 30) : value;
+  }, 0);
+  const inkPop = (t) => {
+    if (t < 11.6) return 1;
+    if (t < 11.9) return 1 - 0.3 * easings.in((t - 11.6) / 0.3);
+    if (t < 13.4) return 0.7;
+    if (t < 14.1) return 0.7 + 0.3 * easings.back((t - 13.4) / 0.7);
+    return 1;
+  };
+
+  const zoomFollow = monotone([[0, Math.log(1.3)], [2.6, Math.log(1.05)], [5.4, Math.log(0.74)], [6.8, Math.log(0.62)], [10.4, Math.log(0.62)], [11.3, Math.log(0.9)], [15.2, Math.log(0.9)], [16.2, Math.log(0.62)], [20.4, Math.log(0.62)], [21.4, Math.log(0.78)], [DUR, Math.log(0.78)]]);
+  const liftFollow = monotone([[0, -40], [5.4, -100], [6.8, -150], [10.4, -150], [11.3, -110], [15.2, -110], [16.2, -150], [17.9, -150], [18.7, -260], [19.1, -260], [19.7, -190], [20.5, -130], [DUR, -130]]);
+  const overview = monotone([[0, 0], [2.5, 0], [3.9, 1], [5.3, 1], [6.7, 0], [22.3, 0], [23.7, 1], [DUR, 1]]);
+  const overviewY = monotone([[0, 1700], [6, 1700], [21, 1490], [DUR, 1490]]);
+  const overviewScale = monotone([[0, Math.log(0.235)], [6, Math.log(0.235)], [21, Math.log(0.215)], [DUR, Math.log(0.203)]]);
+  const LEAD = 180;
+  const rawFollow = (t) => {
+    const a = sample(yellowS(t));
+    const b = sample(inkS(t));
+    return [(a.x + b.x) / 2 + ((a.tx + b.tx) / 2) * LEAD, (a.y + b.y) / 2 + ((a.ty + b.ty) / 2) * LEAD];
+  };
+  const follow = (t) => {
+    let sumX = 0;
+    let sumY = 0;
+    let sumW = 0;
+    for (let k = -6; k <= 6; k++) {
+      const dt = k * 0.1;
+      const weight = Math.exp(-(dt * dt) / (2 * 0.28 * 0.28));
+      const [x, y] = rawFollow(Math.min(DUR, Math.max(0, t + dt)));
+      sumX += x * weight;
+      sumY += y * weight;
+      sumW += weight;
+    }
+    return [sumX / sumW, sumY / sumW + liftFollow(t)];
+  };
+  const view = (t) => {
+    const [fx, fy] = follow(t);
+    const fs = Math.exp(zoomFollow(t));
+    const w = overview(t);
+    if (w < 0.0001) return [fx, fy, fs];
+    const os = Math.exp(overviewScale(t));
+    const ox = 4000;
+    const oy = overviewY(t);
+    const scale = Math.exp(Math.log(fs) * (1 - w) + Math.log(os) * w);
+    const px = (fx * fs - ox * os) / (fs - os);
+    const py = (fy * fs - oy * os) / (fs - os);
+    return [px - ((px - fx) * fs) / scale, py - ((py - fy) * fs) / scale, scale];
+  };
+
   const yellow = document.querySelector(".ball.y");
-  const tagY = document.querySelector(".tag.ty");
-  const tagK = document.querySelector(".tag.tk");
   const ink = document.querySelector(".ball.k");
   const world = document.querySelector(".world");
   const trailY = document.querySelector(".trail.y");
   const trailK = document.querySelector(".trail.k");
   const glow = document.querySelector(".glow");
-  const zoomKeys = [[0, Math.log(1.55)], [2.2, Math.log(1.0)], [3.2, Math.log(0.235)], [4.6, Math.log(0.235)], [5.6, Math.log(0.6)], [9.3, Math.log(0.62)], [9.9, Math.log(0.95)], [12.4, Math.log(0.95)], [13.2, Math.log(0.62)], [19.4, Math.log(0.62)], [20.4, Math.log(0.82)], [21.4, Math.log(0.82)], [22.6, Math.log(0.215)], [26, Math.log(0.205)]];
-  const overviewKeys = [[0, 0], [2.2, 0], [3.2, 1], [4.6, 1], [5.6, 0], [21.4, 0], [22.6, 1], [26, 1]];
-  const overviewY = [[0, 1720], [6, 1720], [21, 1460], [26, 1460]];
-  const liftKeys = [[0, -60], [4.9, -60], [5.8, -270], [9.3, -270], [9.9, -120], [11.8, -120], [12.6, -280], [19.4, -280], [20.4, -170], [26, -170]];
+  const anchorK = document.querySelector(".ak");
+  const anchorY = document.querySelector(".ay");
+  const soloPoint = (() => {
+    const point = sample(BOUNCE);
+    return [point.x + LANE * point.nx, point.y + LANE * point.ny];
+  })();
+  const goalPoint = (() => {
+    const point = sample(S[7] - 40);
+    return [point.x, point.y + 75];
+  })();
+  const pins = [[document.querySelector(".ap1"), soloPoint], [document.querySelector(".ap2"), goalPoint]];
+  const PIN_Y = 800;
   hooks.push((t) => {
-    const sY = keyed(yellowKeys, t);
-    const sK = keyed(inkKeys, t);
-    const py = at(sY);
-    const pk = at(sK);
-    const bx = (py.x + LANE * py.nx + pk.x - LANE * pk.nx) / 2;
-    const byy = (py.y + LANE * py.ny + pk.y - LANE * pk.ny) / 2;
-    yellow.style.transform = `translate(${py.x + LANE * py.nx}px, ${py.y + LANE * py.ny}px)`;
-    ink.style.transform = `translate(${pk.x - LANE * pk.nx}px, ${pk.y - LANE * pk.ny}px)`;
-    tagY.style.transform = `translate(${py.x + (LANE + 100) * py.nx}px, ${py.y + (LANE + 100) * py.ny}px) translate(-50%, -50%)`;
-    tagK.style.transform = `translate(${pk.x - (LANE + 100) * pk.nx}px, ${pk.y - (LANE + 100) * pk.ny}px) translate(-50%, -50%)`;
+    const sY = yellowS(t);
+    const sK = inkS(t);
+    const a = sample(sY);
+    const b = sample(sK);
+    const yx = a.x + LANE * a.nx;
+    const yy = a.y + LANE * a.ny;
+    const kx = b.x - LANE * b.nx;
+    const ky = b.y - LANE * b.ny;
+    const [cx, cy, scale] = view(t);
+    world.style.transform = `translate(${960 - cx * scale}px, ${540 - cy * scale}px) scale(${scale})`;
+    const toScreen = (x, y) => [960 + (x - cx) * scale, 540 + (y - cy) * scale];
+    const angleY = Math.atan2(a.ty, a.tx);
+    const angleK = Math.atan2(b.ty, b.tx);
+    const squashY = squash(t, [SOLO_HIT, PUSH_HIT]);
+    const squashK = squash(t, [PUSH_HIT]);
+    const pop = inkPop(t);
+    yellow.style.transform = `translate(${yx}px, ${yy}px) rotate(${angleY}rad) scale(${1 - 0.18 * squashY}, ${1 + 0.12 * squashY}) rotate(${-angleY}rad)`;
+    ink.style.transform = `translate(${kx}px, ${ky}px) rotate(${angleK}rad) scale(${(1 - 0.18 * squashK) * pop}, ${(1 + 0.12 * squashK) * pop}) rotate(${-angleK}rad)`;
+    const gap = 42 * scale + 22;
+    const [ysx, ysy] = toScreen(yx, yy);
+    const [ksx, ksy] = toScreen(kx, ky);
+    anchorK.style.transform = `translate(${ksx}px, ${ksy - gap}px)`;
+    anchorY.style.transform = `translate(${ysx - (42 * scale + 14)}px, ${ysy}px)`;
+    pins.forEach(([pin, point]) => {
+      const [px, py] = toScreen(point[0], point[1]);
+      const height = Math.max(30, PIN_Y - py);
+      pin.style.transform = `translate(${px}px, ${py}px)`;
+      pin.querySelector(".stem").style.height = `${height - 11}px`;
+      pin.querySelector(".pl").style.top = `${height}px`;
+    });
+    const trailYellow = t >= SOLO_HIT && t < BREAK ? Math.max(sY, CONTACT) : sY;
     trailY.style.strokeDasharray = "1 2";
-    trailY.style.strokeDashoffset = String(1 - sY / TOTAL);
+    trailY.style.strokeDashoffset = String(1 - laneFraction(LANE_Y_LENGTHS, trailYellow));
     trailK.style.strokeDasharray = "1 2";
-    trailK.style.strokeDashoffset = String(1 - sK / TOTAL);
-    const scale = Math.exp(keyed(zoomKeys, t));
-    const ov = keyed(overviewKeys, t);
-    const lead = 260 * (1 - ov);
-    const fx = (bx + lead) * (1 - ov) + 4000 * ov;
-    const fy = (byy + keyed(liftKeys, t)) * (1 - ov) + keyed(overviewY, t) * ov;
-    world.style.transform = `translate(${960 - fx * scale}px, ${560 - fy * scale}px) scale(${scale})`;
+    trailK.style.strokeDashoffset = String(1 - laneFraction(LANE_K_LENGTHS, sK));
     const g = Math.min(1, Math.max(0, (t - 2.9) / 1.5));
-    glow.style.strokeDasharray = `0.08 2`;
+    glow.style.strokeDasharray = "0.08 2";
     glow.style.strokeDashoffset = String(0.08 - easings.inOut(g) * 1.08);
     glow.style.opacity = t > 2.9 && t < 4.6 ? 1 : 0;
   });
@@ -400,110 +578,161 @@ window.build = ({ tween, stagger, hooks, easings }) => {
       element.style.color = mixColor(INK, target, easings.out(k));
     });
   });
-  const wordsIn = (selector, start, gap = 0.07) => stagger(`${selector} .wd`, start, gap, 0.65, { opacity: [0, 1], y: [30, 0], blur: [16, 0] }, "expo");
+  const WORD_IN = { opacity: [0, 1], y: [30, 0], blur: [16, 0] };
+  const wordsIn = (selector, start, gap = 0.07) => stagger(`${selector} .wd`, start, gap, 0.65, WORD_IN, "expo");
   const subIn = (selector, start, end) => {
     tween(selector, start, 0.5, { opacity: [0, 1], y: [30, 0], blur: [10, 0] }, "expo");
     tween(selector, end, 0.35, { opacity: [1, 0], y: [0, -16], blur: [0, 8] }, "in");
+  };
+  const topIn = (selector, start, end) => {
+    tween(selector, start, 0.01, { opacity: [0, 1] });
+    wordsIn(selector, start, 0.09);
+    tween(selector, end, 0.35, { opacity: [1, 0], y: [0, -20], blur: [0, 10] }, "in");
   };
 
   tween(".wd", -1, 0.01, { opacity: [0, 0] });
   tween(".o1 .wd", -1, 0.01, { opacity: [1, 1] });
   tween(".o1 .wd", -0.4, 0.6, { y: [24, 0], blur: [10, 0] }, "expo");
   tween(".o1 .wd:nth-child(n+3)", -1, 0.01, { opacity: [0, 0] });
-  stagger(".o1 .wd:nth-child(n+3)", 0.75, 0.12, 0.6, { opacity: [0, 1], y: [30, 0], blur: [16, 0] }, "expo");
+  stagger(".o1 .wd:nth-child(n+3)", 0.75, 0.12, 0.6, WORD_IN, "expo");
   sweep(".o1 .gr", 1.0, 0.6);
-  tween(".o1", 2.25, 0.4, { opacity: [1, 0], y: [0, -30], blur: [0, 12] }, "in");
+  tween(".o1", 2.3, 0.4, { opacity: [1, 0], y: [0, -30], blur: [0, 12] }, "in");
 
-  tween(".o2, .o2p", -1, 0.01, { opacity: [0, 0] });
-  tween(".o2", 3.0, 0.01, { opacity: [0, 1] });
-  wordsIn(".o2", 3.0, 0.08);
-  sweep(".o2 .gr", 3.4, 0.6);
-  tween(".o2p", 3.5, 0.6, { opacity: [0, 1], y: [20, 0], blur: [8, 0] }, "expo");
-  tween(".o2, .o2p", 4.85, 0.4, { opacity: [1, 0], y: [0, -24], blur: [0, 10] }, "in");
+  tween(".o2p, .o2a, .o2b", -1, 0.01, { opacity: [0, 0] });
+  tween(".o2p", 3.2, 0.6, { opacity: [0, 1], y: [20, 0], blur: [8, 0] }, "expo");
+  tween(".o2a, .o2b", 3.3, 0.01, { opacity: [0, 1] });
+  wordsIn(".o2a", 3.35, 0.08);
+  wordsIn(".o2b", 3.9, 0.12);
+  sweep(".o2b .gr", 4.15, 0.6);
+  tween(".o2p, .o2a, .o2b", 5.45, 0.4, { opacity: [1, 0], y: [0, -24], blur: [0, 10] }, "in");
 
   tween(".stn", -1, 0.01, { opacity: [0, 0] });
-  stagger(".stn", 3.0, 0.2, 0.55, { opacity: [0, 1], scale: [0.4, 1] }, "spring");
+  stagger(".stn", 3.0, 0.18, 0.6, { opacity: [0, 1], scale: [0.6, 1] }, "back");
+  STATIONS.forEach((station, index) => {
+    tween(`.chk${index}`, -1, 0.01, { opacity: [0, 0] });
+    tween(`.chk${index}`, crossing(S[index + 1]), 0.5, { opacity: [0, 1], scale: [0.3, 1] }, "back");
+  });
 
   tween(".ov.sub", -1, 0.01, { opacity: [0, 0] });
-  subIn(".s1", 5.4, 7.5);
-  sweep(".s1 .gr", 5.7, 0.5);
-  subIn(".s2", 7.75, 9.35);
-  subIn(".s3", 9.7, 11.25);
-  sweep(".s3 .gr", 10.1, 0.5);
-  subIn(".s4", 11.45, 13.1);
-  sweep(".s4 .gr", 11.7, 0.5);
-  subIn(".s5", 13.5, 15.45);
-  sweep(".s5 .gr", 13.85, 0.5);
-  subIn(".s6", 15.75, 19.6);
-  sweep(".s6 .gr", 16.1, 0.6);
+  subIn(".s1", 6.7, 8.7);
+  sweep(".s1 .gr", 7.0, 0.5);
+  subIn(".s2", 8.9, 10.8);
+  topIn(".s3", 11.55, 13.05);
+  topIn(".s4", 13.4, 15.0);
+  sweep(".s4 .gr", 13.75, 0.6);
+  subIn(".s5", 16.0, 17.9);
+  sweep(".s5 .gr", 16.35, 0.5);
+  subIn(".s6", 18.3, 20.9);
+  sweep(".s6 .gr", 18.65, 0.6);
 
-  const cardsIn = [[".c1", 5.7], [".c2", 7.1], [".c3", 8.55], [".c4", 12.0], [".c5", 14.0], [".c6", 16.3]];
-  cardsIn.forEach(([selector, start]) => {
+  const cardTimes = [[".c1", 6.5], [".c2", crossing(S[2] - 560)], [".c3", crossing(S[3] - 560)], [".c4", 16.15], [".c5", crossing(S[5] - 560)], [".c6", crossing(S[6] - 560)]];
+  cardTimes.forEach(([selector, start]) => {
     tween(selector, -1, 0.01, { opacity: [0, 0] });
-    tween(selector, start, 0.8, { opacity: [0, 1], y: [120, 0], scale: [0.9, 1] }, "expo");
+    tween(selector, start, 0.8, { opacity: [0, 1], y: [70, 0], scale: [0.94, 1] }, "expo");
   });
-  tween(".ok4", -1, 0.01, { opacity: [0, 0] });
-  tween(".ok4", 12.6, 0.6, { opacity: [0, 1], scale: [0.6, 1] }, "spring");
-  tween(".ok5", -1, 0.01, { opacity: [0, 0] });
-  tween(".ok5", 14.9, 0.6, { opacity: [0, 1], scale: [0.6, 1] }, "spring");
+  tween(".okb", -1, 0.01, { opacity: [0, 0], xp: [-50, -50], yp: [-50, -50] });
+  tween(".ok4", 16.75, 0.55, { opacity: [0, 1], scale: [0.6, 1] }, "back");
+  tween(".ok5", crossing(S[5]) + 0.3, 0.55, { opacity: [0, 1], scale: [0.6, 1] }, "back");
+  const adTime = crossing(S[6]);
   document.querySelectorAll(".c6 .sw").forEach((toggle, index) => {
-    tween(toggle.querySelector("b"), 17.2 + index * 0.35, 0.35, { x: [0, 38] }, "spring");
-    tween(toggle.querySelector(".on"), 17.2 + index * 0.35, 0.25, { opacity: [0, 1] });
+    tween(toggle.querySelector("b"), adTime + 0.05 + index * 0.35, 0.35, { x: [0, 38] }, "spring");
+    tween(toggle.querySelector(".on"), adTime + 0.05 + index * 0.35, 0.25, { opacity: [0, 1] });
   });
   document.querySelectorAll(".fxs .fx").forEach((element, index) => {
     tween(element, -1, 0.01, { opacity: [0, 0] });
-    tween(element, 17.6 + index * 0.28, 0.7, { opacity: [0, 1], y: [80, 0], scale: [0.4, 1] }, "spring");
-    tween(element, 18.3 + index * 0.28, 2.0, { y: [0, -60] }, "inOut");
+    tween(element, adTime + 0.4 + index * 0.25, 0.7, { opacity: [0, 1], y: [60, 0], scale: [0.5, 1] }, "back");
+    tween(element, adTime + 1.1 + index * 0.25, 2.0, { y: [0, -50] }, "inOut");
   });
 
-  tween(".wall", 11.6, 0.2, { opacity: [1, 0], scale: [1, 1.2] }, "out");
-  tween(".wall", 10.2, 0.08, { x: [0, 10] }, "out");
-  tween(".wall", 10.28, 0.25, { x: [10, 0] }, "spring");
-  tween(".wall", 11.3, 0.08, { x: [0, 14] }, "out");
-  tween(".wall", 11.38, 0.2, { x: [14, 0] }, "spring");
+  const wallTx = wallPoint.tx;
+  const wallTy = wallPoint.ty;
+  const shake = (start, size) => {
+    tween(".wall", start, 0.07, { x: [0, size * wallTx], y: [0, size * wallTy] }, "out");
+    tween(".wall", start + 0.07, 0.35, { x: [size * wallTx, 0], y: [size * wallTy, 0] }, "spring");
+  };
+  shake(SOLO_HIT, 14);
+  shake(PUSH_HIT, 18);
+  tween(".wall", BREAK, 0.2, { opacity: [1, 0], scale: [1, 1.15] }, "out");
+  tween(".wlabel, .wfix", -1, 0.01, { opacity: [0, 0], xp: [-50, -50], yp: [-100, -100] });
+  tween(".wlabel", 10.9, 0.55, { opacity: [0, 1], scale: [0.6, 1] }, "back");
+  tween(".wlabel", SOLO_HIT, 0.4, { scale: [1.12, 1] }, "out");
+  tween(".wlabel", BREAK, 0.25, { opacity: [1, 0], scale: [1, 0.6] }, "in");
+  tween(".wfix", 15.35, 0.6, { opacity: [0, 1], scale: [0.6, 1] }, "back");
+  tween(".wfix", 16.2, 0.3, { opacity: [1, 0] }, "in");
   tween(".boom", -1, 0.01, { opacity: [0, 0] });
-  tween(".boom", 11.58, 0.5, { opacity: [0, 1], scale: [0.3, 1.15] }, "expo");
-  tween(".boom", 12.1, 0.4, { opacity: [1, 0], scale: [1.15, 1.3] }, "in");
+  tween(".boom", BREAK, 0.5, { opacity: [0, 1], scale: [0.3, 1.15] }, "expo");
+  tween(".boom", BREAK + 0.5, 0.4, { opacity: [1, 0], scale: [1.15, 1.3] }, "in");
   document.querySelectorAll(".piece").forEach((piece, index) => {
     const angle = (index / 10) * Math.PI * 2 + 0.3;
     const distance = 260 + (index % 3) * 90;
     tween(piece, -1, 0.01, { opacity: [0, 0] });
-    tween(piece, 11.58, 0.01, { opacity: [0, 1] });
-    tween(piece, 11.58, 0.9, { x: [0, Math.cos(angle) * distance], y: [0, Math.sin(angle) * distance - 80], rot: [0, (index % 2 ? 1 : -1) * 260] }, "out");
-    tween(piece, 12.2, 0.4, { opacity: [1, 0] }, "in");
+    tween(piece, BREAK, 0.01, { opacity: [0, 1] });
+    tween(piece, BREAK, 0.9, { x: [0, Math.cos(angle) * distance], y: [0, Math.sin(angle) * distance - 80], rot: [0, (index % 2 ? 1 : -1) * 260] }, "out");
+    tween(piece, BREAK + 0.6, 0.4, { opacity: [1, 0] }, "in");
   });
 
-  [[2.3, 9.5], [13.0, 20.1], [22.3, 99]].forEach(([hideAt, showAt]) => {
-    tween(".tag", hideAt, 0.35, { opacity: [1, 0] }, "in");
-    if (showAt < 99) tween(".tag", showAt, 0.45, { opacity: [0, 1] }, "out");
-  });
+  tween(".ball.k", 11.6, 0.3, { opacity: [1, 0] }, "in");
+  tween(".ball.k", 13.4, 0.35, { opacity: [0, 1] }, "out");
+
+  tween(".t-say, .t-stop", -1, 0.01, { opacity: [0, 0] });
+  tween(".ak .tg2", -1, 0.01, { xp: [-50, -50], yp: [-100, -100] });
+  tween(".ay .tg2", -1, 0.01, { xp: [-100, -100], yp: [-50, -50] });
+  const tagIn = (selector, start) => tween(selector, start, 0.45, { opacity: [0, 1], scale: [0.85, 1] }, "back");
+  const tagOut = (selector, start) => tween(selector, start, 0.25, { opacity: [1, 0], scale: [1, 0.9] }, "in");
+  tagOut(".t-on, .t-idea", 2.3);
+  tagIn(".t-on", 6.6);
+  tagIn(".t-idea", 11.6);
+  tagOut(".t-on", 11.6);
+  tagOut(".t-idea", 12.75);
+  tagIn(".t-stop", 12.95);
+  tagIn(".t-on", 13.5);
+  tagOut(".t-stop", 13.9);
+  tagIn(".t-idea", 14.1);
+  tagOut(".t-on", 14.15);
+  tagIn(".t-say", 14.38);
+  tagOut(".t-say", 15.4);
+  tagIn(".t-on", 15.62);
+  tagOut(".t-idea", 15.5);
+  tagIn(".t-idea", 20.4);
+  tagOut(".t-on, .t-idea", 22.2);
+
   tween(".flag", -1, 0.01, { opacity: [0, 0] });
-  tween(".flag", 19.6, 0.7, { opacity: [0, 1], scale: [0.4, 1], rot: [-12, 0] }, "spring");
+  tween(".flag", 20.2, 0.7, { opacity: [0, 1], scale: [0.4, 1], rot: [-12, 0] }, "back");
   tween(".popper", -1, 0.01, { opacity: [0, 0] });
-  tween(".popper", 20.9, 0.6, { opacity: [0, 1], scale: [0.4, 1], rot: [20, 0] }, "spring");
+  tween(".popper", 21.4, 0.6, { opacity: [0, 1], scale: [0.4, 1], rot: [20, 0] }, "back");
   document.querySelectorAll(".conf").forEach((piece, index) => {
-    const angle = -Math.PI * (0.15 + 0.7 * ((index * 37) % 26) / 26);
+    const angle = -Math.PI * (0.15 + (0.7 * ((index * 37) % 26)) / 26);
     const distance = 300 + ((index * 53) % 5) * 70;
     tween(piece, -1, 0.01, { opacity: [0, 0] });
-    tween(piece, 21.0, 0.01, { opacity: [0, 1] });
-    tween(piece, 21.0, 1.3, { x: [0, Math.cos(angle) * distance + 120], y: [0, Math.sin(angle) * distance], rot: [0, ((index * 71) % 360) - 180] }, "out");
-    tween(piece, 22.0, 0.6, { opacity: [1, 0], y: [Math.sin(angle) * distance, Math.sin(angle) * distance + 120] }, "in");
+    tween(piece, 21.5, 0.01, { opacity: [0, 1] });
+    tween(piece, 21.5, 1.3, { x: [0, Math.cos(angle) * distance + 120], y: [0, Math.sin(angle) * distance], rot: [0, ((index * 71) % 360) - 180] }, "out");
+    tween(piece, 22.5, 0.6, { opacity: [1, 0], y: [Math.sin(angle) * distance, Math.sin(angle) * distance + 120] }, "in");
   });
 
   tween(".o9", -1, 0.01, { opacity: [0, 0] });
-  tween(".o9", 22.55, 0.01, { opacity: [0, 1] });
-  wordsIn(".o9", 22.6, 0.12);
-  sweep(".o9 .gr", 23.0, 0.6);
-  tween(".o9", 23.85, 0.35, { opacity: [1, 0], y: [0, -20], blur: [0, 10] }, "in");
-  tween(".veil", 23.85, 0.6, { opacity: [0, 1] }, "out");
+  tween(".o9", 23.0, 0.01, { opacity: [0, 1] });
+  wordsIn(".o9", 23.05, 0.12);
+  sweep(".o9 .gr", 23.45, 0.6);
+  tween(".ap1, .ap2", -1, 0.01, { opacity: [0, 0] });
+  tween(".pl", -1, 0.01, { xp: [-50, -50] });
+  [[".ap1", 23.7], [".ap2", 24.0]].forEach(([selector, start]) => {
+    tween(selector, start, 0.01, { opacity: [0, 1] });
+    tween(`${selector} .pt`, start, 0.45, { scale: [0, 1] }, "back");
+    tween(`${selector} .stem`, start + 0.05, 0.5, { sy: [0, 1] }, "expo");
+    tween(`${selector} .pl`, start + 0.25, 0.55, { opacity: [0, 1], y: [-14, 0], scale: [0.92, 1] }, "expo");
+  });
+  tween(".o9, .ap1, .ap2", 25.45, 0.35, { opacity: [1, 0] }, "in");
+  tween(".veil", 25.6, 0.6, { opacity: [0, 1] }, "out");
   tween(".e1, .e2, .hero2, .endlogo, .url", -1, 0.01, { opacity: [0, 0] });
-  tween(".e2, .hero2", 24.0, 0.01, { opacity: [0, 1] });
-  tween(".e1", 24.0, 0.55, { opacity: [0, 1], y: [16, 0] }, "expo");
-  wordsIn(".e2", 24.1, 0.06);
-  wordsIn(".hero2", 24.35, 0.12);
-  sweep(".hero2 .gr", 24.55, 0.6);
-  tween(".endlogo", 24.85, 0.5, { opacity: [0, 1], y: [16, 0] }, "expo");
-  tween(".url", 25.0, 0.5, { opacity: [0, 1] }, "out");
+  tween(".e2, .hero2", 25.75, 0.01, { opacity: [0, 1] });
+  tween(".e1", 25.75, 0.55, { opacity: [0, 1], y: [16, 0] }, "expo");
+  stagger(".e2 .wd:not(.em)", 25.85, 0.06, 0.65, WORD_IN, "expo");
+  tween(".e2 .em", 26.3, 0.5, { opacity: [0, 1], blur: [14, 0] }, "expo");
+  tween(".e2 .em", 26.3, 0.7, { scale: [1.35, 1] }, "back");
+  sweep(".e2 .em", 26.35, 0.6);
+  wordsIn(".hero2", 26.6, 0.12);
+  tween(".endlogo", 26.95, 0.5, { opacity: [0, 1], y: [16, 0] }, "expo");
+  tween(".url", 27.1, 0.5, { opacity: [0, 1] }, "out");
 };
 </script>
 <script src="lib/engine.js"></script>

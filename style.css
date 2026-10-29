@@ -93,3 +93,17 @@ main{padding:0 16px 32px}
 .ghead{gap:12px}
 .foot{padding:18px 16px 30px}
 }
+.tags i.diff{border-color:#2f3a2f;background:#18221a;color:#b9e6c0}
+.tags i.d-보통{border-color:#3d3524;background:#231e14;color:#f0d79a}
+.tags i.d-어려움{border-color:#40262a;background:#241517;color:#f3b1b8}
+.code{margin:0 0 10px;padding:12px 14px;border:1px solid #2b2b35;border-radius:12px;background:#17171d;font-size:14px;line-height:1.6;color:#dcdce6}
+.code b{display:block;margin-bottom:4px;font-size:12px;font-weight:800;color:#a9f4e8}
+.paths{margin:0 0 56px}
+.pathlist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.path{display:flex;flex-direction:column;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+.path h3{margin:0 0 8px;font-size:18px;color:#fff}
+.path p{flex:1;margin:0 0 14px;font-size:14px;line-height:1.65;color:#d0d0da}
+.path a{align-self:flex-start;padding:7px 11px;border:1px solid #2d2d37;border-radius:10px;background:#1f1f27;font-size:12.5px;font-weight:600;color:#fff;text-decoration:none}
+.path a::after{content:" \2197"}
+.foot a+a{margin-left:12px}
+@media (max-width:1100px){.pathlist{grid-template-columns:1fr}}

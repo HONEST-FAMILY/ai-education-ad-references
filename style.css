@@ -107,3 +107,4 @@ main{padding:0 16px 32px}
 .path a::after{content:" \2197"}
 .foot a+a{margin-left:12px}
 @media (max-width:1100px){.pathlist{grid-template-columns:1fr}}
+.vlink{display:inline-block;margin-left:8px;padding:6px 12px;border-radius:10px;background:var(--accent);color:#0b0b0f;font-weight:800;text-decoration:none}

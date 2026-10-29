@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>1안 실제 서비스 화면과 큰 글자</title>
+<link rel="stylesheet" href="lib/base.css">
+<style>
+.minilogo{position:absolute;opacity:0}
+.h .minilogo{left:64px;top:52px;height:30px}
+.v .minilogo{left:50%;top:84px;height:34px;margin-left:-64px}
+
+.kicker{font-family:var(--body);font-weight:600;color:var(--ink-2);font-size:40px}
+.h .s1 .kicker{top:318px}
+.v .s1 .kicker{top:690px}
+.prompt{display:flex;align-items:center;gap:28px;padding:0 30px 0 50px}
+.h .prompt{left:340px;top:410px;width:1240px;height:156px}
+.v .prompt{left:70px;top:780px;width:940px;height:300px;padding:0 30px 0 46px}
+.prompt .field{flex:1;position:relative;font-family:var(--body);font-weight:700;font-size:48px;line-height:1.35;color:var(--ink)}
+.v .prompt .field{font-size:54px}
+.prompt .placeholder{position:absolute;left:0;top:50%;transform:translateY(-50%);color:var(--ink-3);font-weight:600;white-space:nowrap}
+.prompt .caret{display:inline-block;width:5px;height:1.05em;background:var(--ink);vertical-align:-.15em;margin-left:4px}
+.send{flex:none;width:100px;height:100px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.send svg{width:46px;height:46px;stroke:var(--marker);stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+.s2 .kicker{display:flex;justify-content:center;align-items:center;gap:14px;color:var(--red);font-weight:700}
+.s2 .kicker i{width:16px;height:16px;border-radius:50%;background:var(--red)}
+.h .s2 .kicker{top:236px}
+.v .s2 .kicker{top:520px;font-size:42px}
+.line{font-size:82px}
+.v .line{font-size:76px;line-height:1.25}
+.h .line .mask:nth-of-type(2),.h .s3 .title .mask:nth-of-type(2){margin-left:.28em}
+.h .vbr{display:none}
+.h .l1{top:350px}.h .l2{top:494px}.h .l3{top:638px}
+.v .l1{top:660px}.v .l2{top:930px}.v .l3{top:1200px}
+
+.h .s3 .title{top:92px;font-size:64px}
+.v .s3 .title{top:250px;font-size:72px}
+.rail{position:absolute;display:flex}
+.h .rail{left:333px;top:212px;gap:26px}
+.v .rail{left:60px;top:500px;gap:10px}
+.chip{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;border:3px solid var(--ink);border-radius:22px;background:#fff;font-family:var(--display);font-weight:800;opacity:.4}
+.h .chip{width:230px;height:92px;font-size:34px}
+.v .chip{width:184px;height:156px;flex-direction:column;gap:6px;font-size:32px}
+.chip svg{width:54px;height:54px}
+.chip .on{position:absolute;inset:0;border-radius:19px;background:var(--marker);opacity:0;z-index:-1}
+.chip{isolation:isolate}
+.work{position:absolute}
+.h .work{left:360px;top:350px;width:1200px;height:640px}
+.v .work{left:60px;top:740px;width:960px;height:1000px}
+.step{position:absolute;inset:0;opacity:0}
+.doc{inset:0;padding:54px 60px}
+.doc h3,.wire h3{margin:0 0 34px;font-family:var(--display);font-weight:800;font-size:52px;display:flex;align-items:center;gap:18px}
+.doc h3 svg,.wire h3 svg{width:64px;height:64px}
+.check{display:flex;align-items:center;gap:22px;font-family:var(--body);font-weight:600;font-size:38px;margin:0 0 26px}
+.v .check{font-size:40px;margin-bottom:34px}
+.check b{flex:none;width:46px;height:46px;border:3px solid var(--ink);border-radius:12px;display:grid;place-items:center;background:#fff}
+.check b svg{width:30px;height:30px;stroke:var(--red);stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.result{position:absolute;left:60px;right:60px;bottom:46px;padding-top:24px;border-top:2px dashed var(--line);font-family:var(--body);font-weight:600;font-size:30px;color:var(--ink-2)}
+.wire{inset:0;padding:54px 60px}
+.wire svg.board{position:absolute;left:60px;right:60px;bottom:110px;width:calc(100% - 120px)}
+.h .wire svg.board{top:150px;height:390px}
+.v .wire svg.board{top:260px;height:460px}
+.wire .board rect,.wire .board path{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.wire .board .fillbox{fill:var(--marker-soft);stroke:none}
+.wire .board .dash{stroke-dasharray:10 10}
+.wire .cap{position:absolute;left:60px;bottom:46px;font-family:var(--body);font-weight:600;font-size:30px;color:var(--ink-2)}
+.design .shot.pc{left:0;top:0}
+.h .design .shot.pc{width:900px;height:600px}
+.v .design .shot.pc{width:960px;height:640px}
+.h .design .shot.phone{left:860px;top:110px;width:250px;height:530px}
+.v .design .shot.phone{left:610px;top:430px;width:300px;height:560px}
+.design .tag,.deploy .tag{font-size:24px}
+.h .design .tag{left:0;top:620px}
+.v .design .tag{left:0;top:690px}
+.code{inset:0;background:var(--ink);border-color:var(--ink);color:#e9eef4;padding:50px 56px;font-family:Consolas,"Cascadia Code",monospace;font-size:34px;line-height:1.7;white-space:pre}
+.v .code{font-size:30px;padding:56px 44px}
+.code .k{color:#ff8a78}.code .f{color:var(--marker)}.code .s{color:#8fe3b5}.code .c{color:#868d96}
+.code .ln{display:block;opacity:0}
+.code .ok{position:absolute;right:46px;bottom:40px;display:flex;align-items:center;gap:12px;padding:14px 24px;border-radius:999px;background:var(--green);color:#fff;font-family:var(--body);font-weight:700;font-size:30px;opacity:0}
+.deploy .shot{left:0;top:0;width:100%}
+.h .deploy .shot{height:600px}
+.v .deploy .shot{height:820px}
+.deploy .url{position:absolute;left:150px;top:6px;height:26px;padding:0 18px;border-radius:999px;background:var(--paper-2);font-family:var(--body);font-weight:600;font-size:18px;line-height:26px;color:var(--ink-2);min-width:420px}
+.deploy .shot .page{position:absolute;left:0;right:0;top:38px;bottom:0}
+.deploy .shot .page img{height:100%}
+.toast{position:absolute;display:flex;align-items:center;gap:14px;padding:20px 30px;border-radius:20px;background:var(--green);color:#fff;font-family:var(--body);font-weight:700;font-size:32px;box-shadow:0 20px 40px rgba(20,145,92,.3);opacity:0}
+.h .toast{right:40px;top:470px}
+.v .toast{left:40px;right:40px;top:690px;justify-content:center}
+.h .deploy .tag{left:0;top:620px}
+.v .deploy .tag{left:0;top:850px}
+
+.s4 .big{font-family:var(--display);font-weight:900;line-height:1}
+.h .s4 .num{left:130px;top:250px}
+.v .s4 .num{left:0;right:0;top:240px;text-align:center}
+.s4 .num .count{font-size:290px}
+.s4 .num .unit{font-family:var(--display);font-weight:800;font-size:120px;margin-left:6px}
+.s4 .num .mark{--mark-h:30%}
+.s4 .say{font-size:72px}
+.h .s4 .say{left:136px;top:600px}
+.v .s4 .say{left:0;right:0;top:600px;text-align:center;font-size:70px}
+.collage{position:absolute;transform-style:preserve-3d}
+.h .collage{left:930px;top:0;width:1100px;height:1080px}
+.v .collage{left:0;top:860px;width:1080px;height:1000px}
+.tilt,.drift{position:absolute;inset:0;transform-style:preserve-3d}
+.h .tilt{transform:rotateY(-18deg) rotateX(8deg)}
+.v .tilt{transform:rotateX(14deg)}
+.collage .shot{border-width:3px}
+.collage .shot .bar{height:30px}
+.collage .shot img{height:calc(100% - 30px)}
+.collage .shot.phone img{height:100%}
+.caption{font-size:26px}
+.h .s4 .caption{left:136px;top:960px}
+.v .s4 .caption{left:0;right:0;top:1830px;text-align:center}
+
+.h .s5 .title{left:130px;top:170px;font-size:96px;text-align:left}
+.v .s5 .title{left:0;right:0;top:330px;font-size:92px;text-align:center}
+.pipe{position:absolute;display:flex;align-items:center}
+.h .pipe{left:130px;top:560px;gap:18px}
+.v .pipe{left:0;right:0;top:760px;flex-direction:column;gap:14px}
+.pipe .p{padding:24px 34px;border:3px solid var(--ink);border-radius:20px;background:#fff;font-family:var(--display);font-weight:800;font-size:38px;white-space:nowrap;box-shadow:8px 8px 0 var(--marker)}
+.v .pipe .p{font-size:44px;padding:26px 50px}
+.pipe .arrow{width:46px;height:46px}
+.v .pipe .arrow{transform:rotate(90deg)}
+.pipe .arrow path{fill:none;stroke:var(--red);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.s5 .sub{font-size:40px;color:var(--ink-2);font-family:var(--body);font-weight:600}
+.h .s5 .sub{left:136px;top:780px}
+.v .s5 .sub{left:0;right:0;top:1640px;text-align:center}
+
+.s6 .logowrap{position:absolute;left:0;right:0;text-align:center}
+.s6 .logo{display:inline-block}
+.h .s6 .logowrap{top:170px}.h .s6 .logo{height:64px}
+.v .s6 .logowrap{top:420px}.v .s6 .logo{height:72px}
+.s6 .l1{font-size:84px}
+.h .s6 .l1{top:330px}
+.v .s6 .l1{top:640px;font-size:80px;line-height:1.3}
+.s6 .l2{font-family:var(--display);font-weight:900;letter-spacing:-.02em}
+.h .s6 .l2{top:450px;font-size:150px}
+.v .s6 .l2{top:870px;font-size:132px}
+.s6 .sub{font-family:var(--body);font-weight:600;color:var(--ink-2);font-size:38px}
+.h .s6 .sub{top:676px}
+.v .s6 .sub{top:1100px;font-size:40px}
+.s6 .ctaw{position:absolute;left:0;right:0;text-align:center}
+.h .s6 .ctaw{top:770px}
+.v .s6 .ctaw{top:1300px}
+.s6 .cta{font-size:42px}
+.v .s6 .cta{font-size:46px}
+.s6 .cta svg{width:38px;height:38px;stroke:var(--marker);stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.s6 .url{font-family:var(--body);font-weight:700;color:var(--ink-2);font-size:34px}
+.h .s6 .url{top:930px}
+.v .s6 .url{top:1500px;font-size:38px}
+
+.s4 .num .big{display:inline-block}
+.idea{font-size:30px;padding:14px 24px;gap:12px;box-shadow:6px 6px 0 var(--marker)}
+.idea i{width:14px;height:14px;border-radius:50%;background:var(--red)}
+.idea:nth-child(even) i{background:var(--green)}
+.h .i1{left:300px;top:196px}.h .i2{left:1330px;top:226px}.h .i3{left:340px;top:650px}.h .i4{left:1270px;top:660px}
+.v .i1{left:80px;top:440px}.v .i2{left:540px;top:520px}.v .i3{left:100px;top:1170px}.v .i4{left:500px;top:1240px}
+.wipe{position:absolute;top:-5%;height:110%;left:0;z-index:20}
+.h .wipe{width:1500px}
+.v .wipe{width:1000px}
+.wipe i{display:block;width:100%;height:100%;background:var(--marker);transform:skewX(-14deg)}
+.toggles{position:absolute;display:flex;gap:22px}
+.h .toggles{left:1180px;top:190px;flex-direction:column}
+.v .toggles{left:60px;right:60px;top:560px;gap:20px}
+.tg{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:0 30px;height:104px;border:3px solid var(--ink);border-radius:22px;background:#fff;font-family:var(--display);font-weight:800;font-size:40px;box-shadow:8px 8px 0 var(--marker)}
+.h .tg{width:520px}
+.v .tg{flex:1}
+.sw{position:relative;flex:none;width:100px;height:54px;border-radius:27px;background:var(--line)}
+.sw .on{position:absolute;inset:0;border-radius:27px;background:var(--green);opacity:0}
+.sw b{position:absolute;left:6px;top:6px;width:42px;height:42px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.v .s5 .title{top:300px}
+.v .pipe{top:720px;gap:8px}
+.v .s5 .sub{top:1640px}
+.v .work{top:720px;height:900px}
+.v .check{font-size:46px}
+.v .doc h3,.v .wire h3{font-size:60px}
+.v .code{padding-top:220px}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="paper"></div>
+  <img class="minilogo logo" src="assets/hf-logo.png" alt="">
+
+  <section class="scene s1">
+    <p class="center kicker">바이브 코딩으로 시작한 당신의 사업</p>
+    <div class="card prompt">
+      <div class="field"><span class="placeholder">만들고 싶은 서비스를 적어보세요</span><span class="typed">내 아이디어를 진짜 서비스로 만들고 싶어요</span><span class="caret"></span></div>
+      <div class="send"><svg viewBox="0 0 48 48"><path d="M24 38V10M12 22l12-12 12 12"/></svg></div>
+    </div>
+    <span class="tag idea i1"><i></i>여행 예약 플랫폼</span>
+    <span class="tag idea i2"><i></i>꽃배달 플랫폼</span>
+    <span class="tag idea i3"><i></i>학원 관리 솔루션</span>
+    <span class="tag idea i4"><i></i>체험단 매칭 플랫폼</span>
+  </section>
+
+  <section class="scene s2">
+    <p class="center kicker"><i></i>혼자 막혔다면</p>
+    <div class="center display line l1"><span class="mask"><span>화면은 나왔는데,</span></span><br class="vbr"><span class="mask"><span>팔기에는 아쉽고.</span></span></div>
+    <div class="center display line l2"><span class="mask"><span>고쳐달라고 해도,</span></span><br class="vbr"><span class="mask"><span>같은 자리만 맴돌고.</span></span></div>
+    <div class="center display line l3"><span class="mask"><span>반복하는 요청만큼,</span></span><br class="vbr"><span class="mask"><span>비용은 쌓이고.</span></span></div>
+  </section>
+
+  <section class="scene s3">
+    <div class="center display title"><span class="mask"><span>기획부터 배포까지,</span></span><br class="vbr"><span class="mask"><span>실무자와 <span class="mark">1:1</span>로 함께</span></span></div>
+    <div class="rail">
+      <div class="chip"><i class="on"></i><svg class="ico" viewBox="0 0 48 48"><path class="fill" d="M19 31v-2.2c0-1.6-.8-3-2.1-4.2A11 11 0 1 1 31.1 24.6c-1.3 1.2-2.1 2.6-2.1 4.2V31z"/><path d="M19 31v-2.2c0-1.6-.8-3-2.1-4.2A11 11 0 1 1 31.1 24.6c-1.3 1.2-2.1 2.6-2.1 4.2V31z"/><path d="M19.5 35.5h9M21 40h6M21.5 25.5 24 21l2.5 4.5"/><path class="red" d="M9 7l2.4 2M39 7l-2.4 2M5 16.5h3M40 16.5h3"/></svg>기획</div>
+      <div class="chip"><i class="on"></i><svg class="ico" viewBox="0 0 48 48"><path class="fill" fill-rule="evenodd" d="M9 40V8.5L40.5 40zM15.5 33.5v-9.4l9.4 9.4z"/><path fill-rule="evenodd" d="M9 40V8.5L40.5 40zM15.5 33.5v-9.4l9.4 9.4z"/><path class="red" d="M9 14.5h3.5M9 20h2.5M21 40v-3M27 40v-2M33 40v-3"/></svg>설계</div>
+      <div class="chip"><i class="on"></i><svg class="ico" viewBox="0 0 48 48"><path class="fill" d="M24 7C14.6 7 7 14.2 7 23.2 7 32.4 14.6 40 23.6 40c2.3 0 3.6-1.4 3.6-3.2 0-1.6-1.3-2.4-1.3-4.1 0-1.9 1.5-3.2 3.4-3.2h4.1c4.6 0 7.6-3.3 7.6-7.8C41 13.6 33.4 7 24 7z"/><path d="M24 7C14.6 7 7 14.2 7 23.2 7 32.4 14.6 40 23.6 40c2.3 0 3.6-1.4 3.6-3.2 0-1.6-1.3-2.4-1.3-4.1 0-1.9 1.5-3.2 3.4-3.2h4.1c4.6 0 7.6-3.3 7.6-7.8C41 13.6 33.4 7 24 7z"/><circle class="red-fill" cx="15.5" cy="22.5" r="2.6"/><circle class="ink-fill" cx="20" cy="14.5" r="2.6"/><circle class="green-fill" cx="29" cy="13.5" r="2.6"/><circle class="white" cx="34.5" cy="20.5" r="2.4"/></svg>디자인</div>
+      <div class="chip"><i class="on"></i><svg class="ico" viewBox="0 0 48 48"><path class="fill" d="M11.5 9h25A2.5 2.5 0 0 1 39 11.5v16a2.5 2.5 0 0 1-2.5 2.5h-25A2.5 2.5 0 0 1 9 27.5v-16A2.5 2.5 0 0 1 11.5 9z"/><path d="M11.5 9h25A2.5 2.5 0 0 1 39 11.5v16a2.5 2.5 0 0 1-2.5 2.5h-25A2.5 2.5 0 0 1 9 27.5v-16A2.5 2.5 0 0 1 11.5 9z"/><path d="M8 30h32l3.5 6.5h-39z"/><path class="red" d="M19.5 15.5l-4 4 4 4M28.5 15.5l4 4-4 4M25.5 14l-3 11"/></svg>개발</div>
+      <div class="chip"><i class="on"></i><svg class="ico" viewBox="0 0 48 48"><path class="fill" d="M24 4.5c5.8 4.6 8.5 10.8 8.5 18.5v9.5h-17V23c0-7.7 2.7-13.9 8.5-18.5z"/><path d="M24 4.5c5.8 4.6 8.5 10.8 8.5 18.5v9.5h-17V23c0-7.7 2.7-13.9 8.5-18.5z"/><circle cx="24" cy="19" r="3.6"/><path d="M15.5 24.5 10 30.5V37l5.5-3.5M32.5 24.5l5.5 6V37l-5.5-3.5"/><path class="red" d="M20.5 37c0 3.2 1.6 5.5 3.5 7 1.9-1.5 3.5-3.8 3.5-7"/></svg>배포</div>
+    </div>
+    <div class="work">
+      <div class="step st1"><div class="card doc">
+        <h3><svg class="ico" viewBox="0 0 48 48"><path class="fill" d="M12 5.5h16l9 9v28H12z"/><path d="M12 5.5h16l9 9v28H12z"/><path d="M28 5.5v9h9M17.5 19.5h14a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-14a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1zM16.5 32.5h16M16.5 37.5h9"/><path class="red" d="M16.5 13.5h7"/></svg>기획서</h3>
+        <p class="check"><b><svg viewBox="0 0 30 30"><path class="tick" pathLength="1" d="M6 15.5l6 6 12-13"/></svg></b>누가, 어떤 상황에서 쓸 서비스인지</p>
+        <p class="check"><b><svg viewBox="0 0 30 30"><path class="tick" pathLength="1" d="M6 15.5l6 6 12-13"/></svg></b>고객이 끝내야 할 행동 정의</p>
+        <p class="check"><b><svg viewBox="0 0 30 30"><path class="tick" pathLength="1" d="M6 15.5l6 6 12-13"/></svg></b>첫 출시 기능과 확장 기능 구분</p>
+        <p class="result">결과물: 고객, 핵심 기능, 첫 출시 범위를 담은 기획서</p>
+      </div></div>
+      <div class="step st2"><div class="card wire">
+        <h3><svg class="ico" viewBox="0 0 48 48"><path class="fill" fill-rule="evenodd" d="M9 40V8.5L40.5 40zM15.5 33.5v-9.4l9.4 9.4z"/><path fill-rule="evenodd" d="M9 40V8.5L40.5 40zM15.5 33.5v-9.4l9.4 9.4z"/><path class="red" d="M9 14.5h3.5M9 20h2.5M21 40v-3M27 40v-2M33 40v-3"/></svg>와이어프레임</h3>
+        <svg class="board" viewBox="0 0 1080 390">
+          <rect class="fillbox" x="20" y="74" width="300" height="296" rx="14"/>
+          <rect class="wl" pathLength="1" x="20" y="10" width="300" height="44" rx="10"/>
+          <rect class="wl" pathLength="1" x="20" y="74" width="300" height="296" rx="14"/>
+          <path class="wl" pathLength="1" d="M48 120h200M48 170h240M48 220h160"/>
+          <rect class="wl" pathLength="1" x="48" y="290" width="160" height="50" rx="25"/>
+          <path class="wl" pathLength="1" d="M340 190h70"/>
+          <path class="wl" pathLength="1" d="M396 176l18 14-18 14"/>
+          <rect class="wl" pathLength="1" x="430" y="10" width="300" height="360" rx="14"/>
+          <rect class="wl" pathLength="1" x="456" y="40" width="248" height="120" rx="10"/>
+          <path class="wl" pathLength="1" d="M456 196h248M456 246h190M456 296h220"/>
+          <path class="wl" pathLength="1" d="M750 190h70"/>
+          <path class="wl" pathLength="1" d="M806 176l18 14-18 14"/>
+          <rect class="wl" pathLength="1" x="840" y="10" width="220" height="360" rx="14"/>
+          <path class="wl" pathLength="1" d="M866 60h168M866 110h120M866 160h150M866 210h100"/>
+          <rect class="wl" pathLength="1" x="866" y="290" width="168" height="50" rx="25"/>
+        </svg>
+        <p class="cap">고객과 관리자의 화면 흐름을 먼저 그립니다</p>
+      </div></div>
+      <div class="step st3 design">
+        <div class="shot pc"><div class="bar"><i></i><i></i><i></i></div><img src="assets/stayjoy.jpg" alt=""></div>
+        <div class="shot phone"><img src="assets/mism.webp" alt=""></div>
+        <span class="tag">화면 예시: 어니스트패밀리가 만든 서비스</span>
+      </div>
+      <div class="step st4"><div class="card code"><span class="ln"><span class="k">async function</span> <span class="f">submitBooking</span>(form) {</span><span class="ln">  <span class="k">const</span> booking = <span class="k">await</span> db.bookings.<span class="f">create</span>(form)</span><span class="ln">  <span class="k">await</span> <span class="f">notify</span>(booking.phone, <span class="s">"예약이 확정됐어요"</span>)</span><span class="ln">  <span class="k">return</span> booking</span><span class="ln">}</span><span class="ok">검수 완료</span></div></div>
+      <div class="step st5 deploy">
+        <div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url"><span class="typed">https://my-first-service.com</span></span></div><div class="page"><img src="assets/48694ab5af8ab393.webp" alt=""></div></div>
+        <div class="toast">배포 완료, 누구나 접속할 수 있어요</div>
+        <span class="tag">화면 예시: 어니스트패밀리가 만든 서비스</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene s4">
+    <div class="abs num"><span class="big mark"><span class="count" data-suf="">0</span><span class="unit">여 개</span></span></div>
+    <div class="abs display say"><span class="mask"><span>웹, 앱을 만들어온</span></span><br><span class="mask"><span>실무자와 함께</span></span></div>
+    <div class="collage"><div class="tilt"><div class="drift"></div></div></div>
+    <p class="abs note caption">화면은 모두 어니스트패밀리가 만든 서비스입니다</p>
+  </section>
+
+  <section class="scene s5">
+    <div class="abs display title"><span class="mask"><span>만들고 끝이 아니라,</span></span><br><span class="mask"><span><span class="mark">마케팅까지</span></span></span></div>
+    <div class="pipe">
+      <span class="p">가설 세우기</span><svg class="arrow" viewBox="0 0 46 46"><path pathLength="1" d="M6 23h32M28 13l10 10-10 10"/></svg>
+      <span class="p">소재 만들기</span><svg class="arrow" viewBox="0 0 46 46"><path pathLength="1" d="M6 23h32M28 13l10 10-10 10"/></svg>
+      <span class="p">광고 노출</span><svg class="arrow" viewBox="0 0 46 46"><path pathLength="1" d="M6 23h32M28 13l10 10-10 10"/></svg>
+      <span class="p">성과 분석</span><svg class="arrow" viewBox="0 0 46 46"><path pathLength="1" d="M6 23h32M28 13l10 10-10 10"/></svg>
+      <span class="p">효율 높이기</span>
+    </div>
+    <div class="toggles">
+      <div class="tg"><span>메타 광고</span><i class="sw"><i class="on"></i><b></b></i></div>
+      <div class="tg"><span>검색광고</span><i class="sw"><i class="on"></i><b></b></i></div>
+    </div>
+    <p class="abs sub">광고를 직접 띄우고, 숫자로 고쳐가는 운영까지</p>
+  </section>
+
+  <section class="scene s6">
+    <div class="logowrap"><img class="logo" src="assets/hf-logo.png" alt=""></div>
+    <div class="center display l1"><span class="mask"><span>내 아이디어를,</span></span><span class="hsp"> </span><br class="vbr"><span class="mask"><span>판매할 수 있는</span></span></div>
+    <div class="center l2"><span class="mask"><span class="mark">진짜 서비스로.</span></span></div>
+    <p class="center sub">어니스트패밀리 AI 부트캠프, 1:1 제작 동행</p>
+    <div class="ctaw"><span class="cta">내 서비스 상담받기<svg viewBox="0 0 48 48"><path d="M10 24h28M26 12l12 12-12 12"/></svg></span></div>
+    <p class="center url">honest-family.com/ai-education</p>
+  </section>
+  <div class="wipe w1"><i></i></div>
+  <div class="wipe w2"><i></i></div>
+  <div class="wipe w3"><i></i></div>
+</div>
+<script>
+window.DURATION = 30;
+const SHOTS = [
+  ["assets/flower119-preview.webp", 0, "플라워119"],
+  ["assets/dd01df1181c593aa.webp", 0, "체리뷰"],
+  ["assets/saembiseo-timetable.png", 0, "쌤비서"],
+  ["assets/main_mobile.png", 1, "쇼츠 OTT"],
+  ["assets/f44fbf22f9799db6.webp", 0, "123타이어"],
+  ["assets/stayjoy.jpg", 0, "스테이앤조이"],
+  ["assets/mism.webp", 1, "미즘"],
+  ["assets/main_pc.png", 0, "공장 중개"],
+  ["assets/48694ab5af8ab393.webp", 0, "캐리박스"],
+];
+function placeCollage(format) {
+  const tilt = document.querySelector(".collage .drift");
+  const layoutH = [[40, 60, 470, 300], [540, -20, 470, 300], [40, 400, 470, 300], [540, 320, 190, 400], [760, 340, 470, 300], [40, 740, 470, 300], [540, 760, 190, 400], [760, 680, 470, 300], [300, 1080, 470, 300]];
+  const layoutV = [[40, 40, 420, 270], [480, 0, 420, 270], [920, 40, 420, 270], [-200, 340, 180, 380], [0, 330, 420, 270], [440, 360, 420, 270], [880, 330, 180, 380], [40, 640, 420, 270], [480, 680, 420, 270]];
+  const layout = format === "v" ? layoutV : layoutH;
+  SHOTS.forEach(([src, phone], index) => {
+    const [x, y, w, h] = layout[index];
+    const box = document.createElement("div");
+    box.className = `shot${phone ? " phone" : ""}`;
+    box.style.cssText = `left:${x}px;top:${y}px;width:${w}px;height:${h}px`;
+    box.innerHTML = phone ? `<img src="${src}" alt="">` : `<div class="bar"><i></i><i></i><i></i></div><img src="${src}" alt="">`;
+    tilt.appendChild(box);
+  });
+}
+placeCollage(new URLSearchParams(location.search).get("fmt") === "v" ? "v" : "h");
+
+window.build = ({ tween, stagger, hooks, format }) => {
+  const V = format === "v";
+  const paper = document.querySelector(".paper");
+  const caret = document.querySelector(".s1 .caret");
+  hooks.push((t) => {
+    paper.style.transform = `translate(${-t * 5}px, ${-t * 3}px)`;
+    const typing = t > 1.05 && t < 2.95;
+    caret.style.opacity = typing || Math.floor(t * 2.4) % 2 === 0 ? 1 : 0;
+  });
+
+  tween(".minilogo", -0.5, 0.5, { opacity: [0, 1] });
+  tween(".minilogo", 25.3, 0.4, { opacity: [1, 0] });
+
+  tween(".s1", 0, 0.01, { opacity: [1, 1] });
+  tween(".s1 .kicker", 0, 0.6, { y: [14, 0] });
+  tween(".s1 .prompt", 0, 0.5, { scale: [1.06, 1] }, "out");
+  tween(".s1 .placeholder", 1.0, 0.15, { opacity: [1, 0] });
+  tween(".s1 .typed", 1.1, 1.8, { type: [0, 1] }, "linear");
+  tween(".s1 .send", 3.1, 0.14, { scale: [1, 0.84] }, "out");
+  tween(".s1 .send", 3.24, 0.3, { scale: [0.84, 1] }, "back");
+  tween(".s1 .prompt", 3.55, 0.6, { y: [0, -90], opacity: [1, 0], blur: [0, 10] }, "in");
+  tween(".s1 .kicker", 3.55, 0.5, { opacity: [1, 0], y: [0, -40] }, "in");
+  tween(".s1", 4.15, 0.05, { opacity: [1, 0] });
+
+  tween(".s2", 3.95, 0.2, { opacity: [0, 1] });
+  tween(".s2 .kicker", 4.0, 0.5, { opacity: [0, 1], y: [20, 0] });
+  const lineStarts = [4.25, 5.55, 6.85];
+  [".l1", ".l2", ".l3"].forEach((line, index) => {
+    stagger(`.s2 ${line} .mask > span`, lineStarts[index], 0.1, 0.55, { yp: [110, 0] }, "expo");
+    if (index < 2) tween(`.s2 ${line}`, lineStarts[index + 1], 0.4, { opacity: [1, 0.28] });
+  });
+  tween(".s2", 8.05, 0.35, { opacity: [1, 0], y: [0, -40] }, "in");
+
+  tween(".s3", 8.25, 0.3, { opacity: [0, 1] });
+  stagger(".s3 .title .mask > span", 8.3, 0.12, 0.6, { yp: [110, 0] }, "expo");
+  tween(".s3 .title .mark", 8.9, 0.5, { mark: [0, 100] }, "inOut");
+  stagger(".s3 .chip", 8.55, 0.07, 0.45, { y: [30, 0], opacity: [0, 0.4] });
+  const active = [9.2, 10.6, 12.0, 13.4, 14.8];
+  document.querySelectorAll(".s3 .chip").forEach((chip, index) => {
+    tween(chip, active[index], 0.3, { opacity: [0.4, 1], scale: [1, 1.08] }, "back");
+    tween(chip, active[index] + 0.3, 0.3, { scale: [1.08, 1] });
+    tween(chip.querySelector(".on"), active[index], 0.3, { opacity: [0, 1] });
+  });
+  const steps = [...document.querySelectorAll(".s3 .step")];
+  steps.forEach((step, index) => {
+    tween(step, active[index], 0.45, { opacity: [0, 1], y: [50, 0], scale: [0.96, 1] }, "out");
+    if (index < steps.length - 1) tween(step, active[index] + 1.3, 0.3, { opacity: [1, 0], y: [0, -40] }, "in");
+  });
+  stagger(".st1 .check", 9.35, 0.22, 0.35, { opacity: [0, 1], x: [-20, 0] });
+  stagger(".st1 .tick", 9.55, 0.22, 0.3, { draw: [0, 1] });
+  tween(".st1 .result", 10.0, 0.4, { opacity: [0, 1] });
+  stagger(".st2 .wl", 10.7, 0.05, 0.4, { draw: [0, 1] }, "inOut");
+  tween(".st2 .fillbox", 11.3, 0.4, { opacity: [0, 1] });
+  tween(".st2 .cap", 11.2, 0.4, { opacity: [0, 1] });
+  tween(".st3 .shot.pc", 12.0, 0.5, { x: [-40, 0] });
+  tween(".st3 .shot.phone", 12.15, 0.55, { y: [80, 0], opacity: [0, 1], rot: [6, 0] }, "back");
+  tween(".st3 .tag", 12.5, 0.4, { opacity: [0, 1], y: [16, 0] });
+  stagger(".st4 .ln", 13.5, 0.2, 0.25, { opacity: [0, 1], x: [-16, 0] });
+  tween(".st4 .ok", 14.4, 0.35, { opacity: [0, 1], scale: [0.7, 1] }, "back");
+  tween(".st5 .url .typed", 14.9, 0.6, { type: [0, 1] }, "linear");
+  tween(".st5 .page", 15.5, 0.5, { clipB: [100, 0] }, "inOut");
+  tween(".st5 .toast", 15.85, 0.4, { opacity: [0, 1], y: [30, 0], scale: [0.9, 1] }, "back");
+  tween(".st5 .tag", 15.9, 0.35, { opacity: [0, 1] });
+  tween(".s3", 16.25, 0.35, { opacity: [1, 0] }, "in");
+
+  tween(".s4", 16.4, 0.3, { opacity: [0, 1] });
+  tween(".s4 .count", 16.6, 1.3, { count: [0, 60] }, "out");
+  tween(".s4 .unit", 17.6, 0.4, { opacity: [0, 1], x: [-20, 0] });
+  tween(".s4 .num .mark", 17.9, 0.6, { mark: [0, 100] }, "inOut");
+  stagger(".s4 .say .mask > span", 17.3, 0.14, 0.6, { yp: [110, 0] }, "expo");
+  stagger(".collage .shot", 16.55, 0.1, 0.8, { opacity: [0, 1], y: [160, 0], scale: [0.86, 1] }, "out");
+  tween(".collage .drift", 16.4, 6.0, V ? { x: [0, -260] } : { y: [140, -220] }, "linear");
+  tween(".s4 .caption", 18.4, 0.5, { opacity: [0, 1] });
+  tween(".s4", 22.1, 0.35, { opacity: [1, 0] }, "in");
+
+  tween(".s5", 22.35, 0.3, { opacity: [0, 1] });
+  stagger(".s5 .title .mask > span", 22.45, 0.15, 0.6, { yp: [110, 0] }, "expo");
+  tween(".s5 .title .mark", 23.05, 0.5, { mark: [0, 100] }, "inOut");
+  stagger(".s5 .pipe .p", 23.2, 0.24, 0.4, { opacity: [0, 1], y: [30, 0], scale: [0.9, 1] }, "back");
+  stagger(".s5 .pipe .arrow path", 23.38, 0.24, 0.25, { draw: [0, 1] });
+  tween(".s5 .sub", 24.5, 0.45, { opacity: [0, 1], y: [20, 0] });
+  tween(".s5", 25.3, 0.35, { opacity: [1, 0] }, "in");
+
+
+  const ideaRot = [-5, 4, 3, -4];
+  document.querySelectorAll(".s1 .idea").forEach((chip, index) => {
+    tween(chip, 0.3 + index * 0.12, 0.5, { opacity: [0, 1], scale: [0.6, 1], rot: [ideaRot[index] * 2, ideaRot[index]] }, "back");
+    tween(chip, 0.8 + index * 0.12, 2.6, { y: [0, index % 2 ? 14 : -14] }, "linear");
+    tween(chip, 3.5, 0.35, { opacity: [1, 0] }, "in");
+  });
+  const stageWidth = V ? 1080 : 1920;
+  const wipeWidth = V ? 1000 : 1500;
+  [[".w1", 3.72], [".w2", 15.98], [".w3", 25.08]].forEach(([selector, start]) => {
+    tween(selector, start, 0.8, { x: [-wipeWidth - 700, stageWidth + 700] }, "inOut");
+  });
+  stagger(".s5 .tg", 22.7, 0.15, 0.45, { opacity: [0, 1], x: [V ? 0 : 40, 0], y: [V ? 30 : 0, 0] });
+  document.querySelectorAll(".s5 .sw").forEach((toggle, index) => {
+    tween(toggle.querySelector("b"), 23.6 + index * 0.35, 0.3, { x: [0, 46] }, "back");
+    tween(toggle.querySelector(".on"), 23.6 + index * 0.35, 0.25, { opacity: [0, 1] });
+  });
+  tween(".s6", 25.55, 0.35, { opacity: [0, 1] });
+  tween(".s6 .logowrap", 25.75, 0.5, { opacity: [0, 1], y: [-20, 0] });
+  stagger(".s6 .l1 .mask > span", 25.95, 0.12, 0.6, { yp: [110, 0] }, "expo");
+  tween(".s6 .l2 .mask > span", 26.25, 0.7, { yp: [110, 0] }, "expo");
+  tween(".s6 .l2 .mark", 26.9, 0.6, { mark: [0, 100] }, "inOut");
+  tween(".s6 .sub", 27.2, 0.45, { opacity: [0, 1], y: [16, 0] });
+  tween(".s6 .ctaw", 27.55, 0.5, { opacity: [0, 1], scale: [0.8, 1] }, "back");
+  tween(".s6 .url", 27.9, 0.45, { opacity: [0, 1] });
+};
+</script>
+<script src="lib/engine.js"></script>
+</body>
+</html>

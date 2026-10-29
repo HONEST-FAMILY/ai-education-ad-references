@@ -14,12 +14,13 @@
     back: (p) => 1 + 2.70158 * Math.pow(p - 1, 3) + 1.70158 * Math.pow(p - 1, 2),
     quart: (p) => 1 - Math.pow(1 - p, 4),
     smooth: (p) => (p < 0.5 ? 8 * Math.pow(p, 4) : 1 - Math.pow(-2 * p + 2, 4) / 2),
+    spring: (p) => (p >= 1 ? 1 : 1 - Math.exp(-6.5 * p) * Math.cos(9.5 * p)),
   };
 
   const tracks = new Map();
   const hooks = [];
-  const transformKeys = ["x", "y", "xp", "yp", "scale", "sx", "sy", "rot", "rx", "ry"];
-  const transformDefaults = { x: 0, y: 0, xp: 0, yp: 0, scale: 1, sx: 1, sy: 1, rot: 0, rx: 0, ry: 0 };
+  const transformKeys = ["x", "y", "z", "xp", "yp", "scale", "sx", "sy", "rot", "rx", "ry"];
+  const transformDefaults = { x: 0, y: 0, z: 0, xp: 0, yp: 0, scale: 1, sx: 1, sy: 1, rot: 0, rx: 0, ry: 0 };
 
   const elementsOf = (target) => {
     if (typeof target === "string") return [...document.querySelectorAll(target)];
@@ -66,7 +67,7 @@
       for (const key in track) values[key] = valueAt(track[key], time);
       if (transformKeys.some((key) => key in values)) {
         const get = (key) => (key in values ? values[key] : transformDefaults[key]);
-        element.style.transform = `translate(${get("xp")}%, ${get("yp")}%) translate(${get("x")}px, ${get("y")}px) rotateX(${get("rx")}deg) rotateY(${get("ry")}deg) rotate(${get("rot")}deg) scale(${get("scale") * get("sx")}, ${get("scale") * get("sy")})`;
+        element.style.transform = `translate(${get("xp")}%, ${get("yp")}%) translate3d(${get("x")}px, ${get("y")}px, ${get("z")}px) rotateX(${get("rx")}deg) rotateY(${get("ry")}deg) rotate(${get("rot")}deg) scale(${get("scale") * get("sx")}, ${get("scale") * get("sy")})`;
       }
       if ("opacity" in values) element.style.opacity = values.opacity;
       if ("blur" in values) element.style.filter = values.blur > 0.05 ? `blur(${values.blur}px)` : "none";
@@ -88,6 +89,7 @@
         element.textContent = `${element.dataset.pre || ""}${Math.round(values.count).toLocaleString("ko-KR")}${element.dataset.suf || ""}`;
       }
       if ("w" in values) element.style.width = `${values.w}%`;
+      if ("bgx" in values) element.style.backgroundPosition = `${values.bgx}% 50%`;
     }
     for (const hook of hooks) hook(time);
   };

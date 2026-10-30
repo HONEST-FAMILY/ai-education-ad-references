@@ -1,0 +1,1166 @@
+{
+  "A": {
+    "video": "ad2a_h.mp4",
+    "description": "Precise, warm UI rhythm; messages and completion have foreground priority.",
+    "music": {
+      "filename": "music-1167.mp3",
+      "tempo": 1.088435374,
+      "bpm_original": 105,
+      "bpm_edit": 114.285714,
+      "edits": [
+        {
+          "at": 0,
+          "source": 0.06,
+          "length": 27.22,
+          "fade_out": 0.2
+        },
+        {
+          "at": 27.1,
+          "source": 91.02,
+          "length": 2.4,
+          "fade_in": 0.04,
+          "fade_out": 0.5
+        }
+      ],
+      "gain": [
+        [
+          0,
+          0.7
+        ],
+        [
+          0.3,
+          0.94
+        ],
+        [
+          7.7,
+          0.94
+        ],
+        [
+          8.1,
+          0.76
+        ],
+        [
+          9.3,
+          0.9
+        ],
+        [
+          11.25,
+          1
+        ],
+        [
+          15.95,
+          1
+        ],
+        [
+          16.4,
+          0.78
+        ],
+        [
+          18.7,
+          0.82
+        ],
+        [
+          20.1,
+          1
+        ],
+        [
+          21.25,
+          1.02
+        ],
+        [
+          24.8,
+          1.02
+        ],
+        [
+          25.5,
+          0.74
+        ],
+        [
+          26.65,
+          0.8
+        ],
+        [
+          27.3,
+          0.66
+        ],
+        [
+          28.4,
+          0.5
+        ],
+        [
+          29.15,
+          0.2
+        ],
+        [
+          29.5,
+          0
+        ]
+      ]
+    },
+    "cues": [
+      {
+        "at": 0.08,
+        "asset": 3005,
+        "db": -19,
+        "label": "Opening settle",
+        "pan": 0.15
+      },
+      {
+        "at": 1.2,
+        "asset": 1109,
+        "db": -20,
+        "label": "Stage selector 2",
+        "pitch": -1,
+        "pan": 0.18,
+        "anchor": "peak",
+        "lp": 9000
+      },
+      {
+        "at": 2.25,
+        "asset": 1109,
+        "db": -20,
+        "label": "Stage selector 3",
+        "pitch": 0,
+        "pan": 0.18,
+        "anchor": "peak",
+        "lp": 9000
+      },
+      {
+        "at": 3.19,
+        "asset": 166,
+        "db": -28,
+        "label": "Selector air",
+        "speed": 2,
+        "anchor": "peak",
+        "pan": 0.1
+      },
+      {
+        "at": 3.3,
+        "asset": 1109,
+        "db": -20,
+        "label": "Stage selector 4",
+        "pitch": 1,
+        "pan": 0.18,
+        "anchor": "peak",
+        "lp": 9000
+      },
+      {
+        "at": 4.35,
+        "asset": 1109,
+        "db": -20,
+        "label": "Stage selector 5",
+        "pitch": 0,
+        "pan": 0.18,
+        "anchor": "peak",
+        "lp": 9000
+      },
+      {
+        "at": 5.4,
+        "asset": 1109,
+        "db": -20,
+        "label": "Stage selector 6",
+        "pitch": 1,
+        "pan": 0.18,
+        "anchor": "peak",
+        "lp": 9000
+      },
+      {
+        "at": 6.4399999999999995,
+        "asset": 166,
+        "db": -28,
+        "label": "Selector air",
+        "speed": 2,
+        "anchor": "peak",
+        "pan": 0.1
+      },
+      {
+        "at": 6.55,
+        "asset": 1109,
+        "db": -18,
+        "label": "Stage selector 7",
+        "pitch": 2,
+        "pan": 0.18,
+        "anchor": "peak",
+        "lp": 9000
+      },
+      {
+        "at": 8.1,
+        "asset": 166,
+        "db": -23,
+        "label": "Promise card transition",
+        "anchor": "peak",
+        "speed": 1.35,
+        "pan": -0.13,
+        "duck": 1.4
+      },
+      {
+        "at": 8.88,
+        "asset": 3005,
+        "db": -20,
+        "label": "Actual sales headline",
+        "pitch": -2
+      },
+      {
+        "at": 9.1,
+        "asset": "body",
+        "db": -24,
+        "label": "Promise weight",
+        "freq": 90
+      },
+      {
+        "at": 11.25,
+        "asset": 166,
+        "db": -23,
+        "label": "Service showcase transition",
+        "anchor": "peak",
+        "speed": 1.35,
+        "pan": -0.13,
+        "duck": 1.4
+      },
+      {
+        "at": 11.42,
+        "asset": 2356,
+        "db": -26,
+        "label": "Portfolio cards landing",
+        "pan": -0.25,
+        "pitch": -1.0
+      },
+      {
+        "at": 11.57,
+        "asset": 2356,
+        "db": -26,
+        "label": "Portfolio cards landing",
+        "pan": 0,
+        "pitch": 0
+      },
+      {
+        "at": 11.62,
+        "asset": 2585,
+        "db": -30,
+        "label": "60 projects counter detail",
+        "pan": -0.12
+      },
+      {
+        "at": 11.72,
+        "asset": 2356,
+        "db": -26,
+        "label": "Portfolio cards landing",
+        "pan": 0.25,
+        "pitch": 1.0
+      },
+      {
+        "at": 11.85,
+        "asset": 2585,
+        "db": -30,
+        "label": "60 projects counter detail",
+        "pan": -0.12
+      },
+      {
+        "at": 12.12,
+        "asset": 2585,
+        "db": -30,
+        "label": "60 projects counter detail",
+        "pan": -0.12
+      },
+      {
+        "at": 12.47,
+        "asset": 2585,
+        "db": -30,
+        "label": "60 projects counter detail",
+        "pan": -0.12
+      },
+      {
+        "at": 12.66,
+        "asset": "pluck",
+        "db": -24,
+        "label": "60 projects settle",
+        "note": 72,
+        "duration": 0.65
+      },
+      {
+        "at": 16.35,
+        "asset": 166,
+        "db": -23,
+        "label": "Mentor chat transition",
+        "anchor": "peak",
+        "speed": 1.35,
+        "pan": 0.13,
+        "duck": 1.4
+      },
+      {
+        "at": 16.74,
+        "asset": 3005,
+        "db": -23,
+        "label": "Bug icon appears",
+        "pitch": -5,
+        "pan": 0.14
+      },
+      {
+        "at": 17.02,
+        "asset": 2354,
+        "db": -17,
+        "label": "Question message",
+        "pan": 0.18,
+        "anchor": "peak",
+        "duck": 2
+      },
+      {
+        "at": 18.17,
+        "asset": 2356,
+        "db": -16,
+        "label": "Mentor reply",
+        "pan": -0.18,
+        "anchor": "peak",
+        "pitch": 2,
+        "duck": 2.5
+      },
+      {
+        "at": 18.43,
+        "asset": 166,
+        "db": -27,
+        "label": "Bug dissolves",
+        "speed": 2.2,
+        "anchor": "peak",
+        "pan": 0.15
+      },
+      {
+        "at": 19.74,
+        "asset": 1489,
+        "db": -25,
+        "label": "Progress rises into completion",
+        "anchor": "peak",
+        "speed": 2.2,
+        "lp": 7500
+      },
+      {
+        "at": 19.99,
+        "asset": "pluck",
+        "db": -18,
+        "label": "100 percent first note",
+        "note": 77,
+        "duck": 2
+      },
+      {
+        "at": 20.03,
+        "asset": 1714,
+        "db": -28,
+        "label": "Rocket launch",
+        "anchor": "peak",
+        "speed": 2.3,
+        "hp": 350,
+        "lp": 7500,
+        "pan": 0.16
+      },
+      {
+        "at": 20.1,
+        "asset": "pluck",
+        "db": -21,
+        "label": "100 percent answer",
+        "note": 84
+      },
+      {
+        "at": 21.25,
+        "asset": 166,
+        "db": -23,
+        "label": "Marketing phone transition",
+        "anchor": "peak",
+        "speed": 1.35,
+        "pan": 0.13,
+        "duck": 1.4
+      },
+      {
+        "at": 21.44,
+        "asset": 3005,
+        "db": -25,
+        "label": "Phone settles",
+        "pitch": -3
+      },
+      {
+        "at": 22.5,
+        "asset": 2585,
+        "db": -17,
+        "label": "Meta ads toggle",
+        "pan": 0.12,
+        "duck": 1.4
+      },
+      {
+        "at": 22.8,
+        "asset": 2585,
+        "db": -18,
+        "label": "Search ads toggle",
+        "pan": 0.12,
+        "pitch": 2
+      },
+      {
+        "at": 23.12,
+        "asset": 2356,
+        "db": -25,
+        "label": "Creative triage 1",
+        "pitch": 0,
+        "pan": -0.16
+      },
+      {
+        "at": 23.240000000000002,
+        "asset": 2356,
+        "db": -25,
+        "label": "Creative triage 2",
+        "pitch": 2,
+        "pan": 0.0
+      },
+      {
+        "at": 23.36,
+        "asset": 2356,
+        "db": -25,
+        "label": "Creative triage 3",
+        "pitch": 4,
+        "pan": 0.16
+      },
+      {
+        "at": 23.9,
+        "asset": "pluck",
+        "db": -18,
+        "label": "Customer notification",
+        "note": 80,
+        "duration": 0.9,
+        "duck": 2
+      },
+      {
+        "at": 24.04,
+        "asset": "pluck",
+        "db": -22,
+        "label": "Customer notification tail",
+        "note": 84,
+        "duration": 0.7
+      },
+      {
+        "at": 25.5,
+        "asset": 166,
+        "db": -23,
+        "label": "Closing message transition",
+        "anchor": "peak",
+        "speed": 1.35,
+        "pan": 0.13,
+        "duck": 1.4
+      },
+      {
+        "at": 26.37,
+        "asset": 3005,
+        "db": -16,
+        "label": "Emphasized real",
+        "pitch": -3,
+        "duck": 2.4
+      },
+      {
+        "at": 26.37,
+        "asset": "body",
+        "db": -23,
+        "label": "Emphasized real body",
+        "freq": 95
+      },
+      {
+        "at": 26.7,
+        "asset": "pluck",
+        "db": -19,
+        "label": "Service word",
+        "note": 77
+      },
+      {
+        "at": 27.1,
+        "asset": "pluck",
+        "db": -20,
+        "label": "Logo signature lower",
+        "note": 68,
+        "duration": 2
+      },
+      {
+        "at": 27.21,
+        "asset": "pluck",
+        "db": -21,
+        "label": "Logo signature upper",
+        "note": 72,
+        "duration": 1.8
+      }
+    ]
+  },
+  "B": {
+    "video": "ad2b_h.mp4",
+    "description": "Playful forward motion; restrained obstacle pause, tactile breakthrough, clean resolution.",
+    "music": {
+      "filename": "music-729.mp3",
+      "tempo": 1,
+      "bpm_original": 109,
+      "bpm_edit": 109,
+      "edits": [
+        {
+          "at": 0,
+          "source": 4.4,
+          "length": 15.01,
+          "fade_out": 0.05
+        },
+        {
+          "at": 15.05,
+          "source": 22.02,
+          "length": 12.04,
+          "fade_out": 0.18
+        },
+        {
+          "at": 26.98,
+          "source": 91.92,
+          "length": 2.52,
+          "fade_in": 0.04,
+          "fade_out": 0.5
+        }
+      ],
+      "gain": [
+        [
+          0,
+          0.7
+        ],
+        [
+          0.25,
+          0.93
+        ],
+        [
+          2.4,
+          0.93
+        ],
+        [
+          3.15,
+          0.78
+        ],
+        [
+          6.4,
+          0.95
+        ],
+        [
+          10.8,
+          0.95
+        ],
+        [
+          11.55,
+          0.48
+        ],
+        [
+          12.3,
+          0.15
+        ],
+        [
+          12.4,
+          0.06
+        ],
+        [
+          13.35,
+          0.06
+        ],
+        [
+          13.5,
+          0.22
+        ],
+        [
+          14.55,
+          0.32
+        ],
+        [
+          14.88,
+          0.12
+        ],
+        [
+          14.98,
+          0.02
+        ],
+        [
+          15.04,
+          0.02
+        ],
+        [
+          15.05,
+          1.07
+        ],
+        [
+          20.6,
+          1.0
+        ],
+        [
+          21.55,
+          0.96
+        ],
+        [
+          22.5,
+          0.75
+        ],
+        [
+          25.5,
+          0.74
+        ],
+        [
+          26.3,
+          0.82
+        ],
+        [
+          27.2,
+          0.65
+        ],
+        [
+          28.4,
+          0.5
+        ],
+        [
+          29.2,
+          0.1
+        ],
+        [
+          29.5,
+          0
+        ]
+      ],
+      "lowpass_blend": [
+        [
+          0,
+          0
+        ],
+        [
+          11.4,
+          0
+        ],
+        [
+          11.85,
+          0.9
+        ],
+        [
+          13.35,
+          0.9
+        ],
+        [
+          14.5,
+          0.6
+        ],
+        [
+          14.96,
+          1
+        ],
+        [
+          15.04,
+          1
+        ],
+        [
+          15.05,
+          0
+        ],
+        [
+          29.5,
+          0
+        ]
+      ]
+    },
+    "cues": [
+      {
+        "at": 0.07,
+        "asset": 2073,
+        "db": -22,
+        "label": "Two balls depart",
+        "pitch": 3,
+        "pan": -0.18,
+        "anchor": "peak"
+      },
+      {
+        "at": 0.16,
+        "asset": 2073,
+        "db": -25,
+        "label": "Companion response",
+        "pitch": -1,
+        "pan": 0.12,
+        "anchor": "peak"
+      },
+      {
+        "at": 0.9,
+        "asset": 3005,
+        "db": -23,
+        "label": "Together headline",
+        "pitch": -1
+      },
+      {
+        "at": 3.0,
+        "asset": 1489,
+        "db": -25,
+        "label": "Camera pulls out to whole route",
+        "anchor": "peak",
+        "speed": 0.95,
+        "pan": 0.2
+      },
+      {
+        "at": 3.08,
+        "asset": 2356,
+        "db": -31,
+        "label": "Station overview 1",
+        "pitch": 0.0,
+        "pan": -0.25
+      },
+      {
+        "at": 3.26,
+        "asset": 2356,
+        "db": -31,
+        "label": "Station overview 2",
+        "pitch": 0.6,
+        "pan": -0.15
+      },
+      {
+        "at": 3.44,
+        "asset": 2356,
+        "db": -31,
+        "label": "Station overview 3",
+        "pitch": 1.2,
+        "pan": -0.04999999999999999
+      },
+      {
+        "at": 3.62,
+        "asset": 2356,
+        "db": -31,
+        "label": "Station overview 4",
+        "pitch": 1.7999999999999998,
+        "pan": 0.050000000000000044
+      },
+      {
+        "at": 3.8,
+        "asset": 2356,
+        "db": -31,
+        "label": "Station overview 5",
+        "pitch": 2.4,
+        "pan": 0.15000000000000002
+      },
+      {
+        "at": 3.98,
+        "asset": 2356,
+        "db": -31,
+        "label": "Station overview 6",
+        "pitch": 3.0,
+        "pan": 0.25
+      },
+      {
+        "at": 4.17,
+        "asset": "pluck",
+        "db": -22,
+        "label": "Actual sales headline",
+        "note": 76,
+        "duration": 0.85,
+        "duck": 1.2
+      },
+      {
+        "at": 6.45,
+        "asset": 166,
+        "db": -24,
+        "label": "Camera returns to route",
+        "anchor": "peak",
+        "speed": 1.05,
+        "pan": -0.15
+      },
+      {
+        "at": 7.2,
+        "asset": 1109,
+        "db": -21,
+        "label": "Station check 1",
+        "anchor": "peak",
+        "pitch": 0,
+        "pan": 0.1
+      },
+      {
+        "at": 7.235,
+        "asset": "pluck",
+        "db": -26,
+        "label": "Station accent 1",
+        "note": 69,
+        "duration": 0.65
+      },
+      {
+        "at": 8.75,
+        "asset": 1109,
+        "db": -21,
+        "label": "Station check 2",
+        "anchor": "peak",
+        "pitch": 1,
+        "pan": 0.1
+      },
+      {
+        "at": 8.785,
+        "asset": "pluck",
+        "db": -26,
+        "label": "Station accent 2",
+        "note": 72,
+        "duration": 0.65
+      },
+      {
+        "at": 10.3,
+        "asset": 1109,
+        "db": -21,
+        "label": "Station check 3",
+        "anchor": "peak",
+        "pitch": 2,
+        "pan": 0.1
+      },
+      {
+        "at": 10.335,
+        "asset": "pluck",
+        "db": -26,
+        "label": "Station accent 3",
+        "note": 76,
+        "duration": 0.65
+      },
+      {
+        "at": 10.97,
+        "asset": 3005,
+        "db": -24,
+        "label": "Payment error sign",
+        "pitch": -6
+      },
+      {
+        "at": 11.7,
+        "asset": 166,
+        "db": -28,
+        "label": "Companion leaves",
+        "anchor": "peak",
+        "speed": 1.7,
+        "pan": -0.3
+      },
+      {
+        "at": 12.35,
+        "asset": 2182,
+        "db": -12,
+        "label": "Solo collision",
+        "anchor": "peak",
+        "pitch": -4,
+        "pan": 0.16,
+        "bus": "foley",
+        "duck": 4
+      },
+      {
+        "at": 12.35,
+        "asset": "body",
+        "db": -20,
+        "label": "Solo collision weight",
+        "freq": 130,
+        "bus": "foley"
+      },
+      {
+        "at": 12.52,
+        "asset": 2073,
+        "db": -26,
+        "label": "Recoil",
+        "pitch": -2,
+        "anchor": "peak",
+        "pan": 0.12,
+        "bus": "foley"
+      },
+      {
+        "at": 12.98,
+        "asset": 2356,
+        "db": -26,
+        "label": "Stopped tag",
+        "pitch": -5,
+        "pan": -0.1
+      },
+      {
+        "at": 13.48,
+        "asset": 166,
+        "db": -24,
+        "label": "Companion returns",
+        "anchor": "peak",
+        "speed": 1.5,
+        "pan": -0.23
+      },
+      {
+        "at": 13.6,
+        "asset": 3005,
+        "db": -22,
+        "label": "Companion returns settle",
+        "pitch": -1,
+        "pan": -0.2
+      },
+      {
+        "at": 14.42,
+        "asset": 2354,
+        "db": -18,
+        "label": "Found the cause message",
+        "anchor": "peak",
+        "pan": -0.12,
+        "duck": 2
+      },
+      {
+        "at": 14.91,
+        "asset": 1489,
+        "db": -25,
+        "label": "Joint push anticipation",
+        "anchor": "peak",
+        "speed": 2,
+        "lp": 5000
+      },
+      {
+        "at": 14.95,
+        "asset": 2182,
+        "db": -16,
+        "label": "Two balls push the barrier",
+        "anchor": "peak",
+        "pitch": -7,
+        "pan": 0.1,
+        "bus": "foley"
+      },
+      {
+        "at": 15.05,
+        "asset": 2945,
+        "db": -12,
+        "label": "Barrier crack",
+        "anchor": "peak",
+        "pitch": -3,
+        "bus": "foley",
+        "duck": 3
+      },
+      {
+        "at": 15.05,
+        "asset": "body",
+        "db": -14,
+        "label": "Breakthrough low body",
+        "freq": 160,
+        "duration": 0.65,
+        "bus": "foley"
+      },
+      {
+        "at": 15.09,
+        "asset": 3141,
+        "db": -19,
+        "label": "Barrier pieces scatter",
+        "anchor": "peak",
+        "speed": 1.25,
+        "pan": 0.27,
+        "bus": "foley",
+        "hp": 350
+      },
+      {
+        "at": 15.2,
+        "asset": 3141,
+        "db": -25,
+        "label": "Distant debris tail",
+        "pitch": 4,
+        "pan": -0.28,
+        "bus": "foley",
+        "hp": 650
+      },
+      {
+        "at": 15.4,
+        "asset": "pluck",
+        "db": -20,
+        "label": "Error resolved",
+        "note": 76,
+        "duration": 0.9
+      },
+      {
+        "at": 15.54,
+        "asset": "pluck",
+        "db": -23,
+        "label": "Error resolved answer",
+        "note": 81,
+        "duration": 0.9
+      },
+      {
+        "at": 15.9,
+        "asset": 1109,
+        "db": -22,
+        "label": "Development checkpoint",
+        "anchor": "peak",
+        "pitch": 2
+      },
+      {
+        "at": 16.78,
+        "asset": 2356,
+        "db": -20,
+        "label": "Review complete",
+        "pitch": 1,
+        "duck": 1.2
+      },
+      {
+        "at": 17.51,
+        "asset": 1109,
+        "db": -22,
+        "label": "Launch checkpoint",
+        "anchor": "peak",
+        "pitch": 3
+      },
+      {
+        "at": 17.81,
+        "asset": "pluck",
+        "db": -22,
+        "label": "Deployment complete",
+        "note": 76,
+        "duration": 0.8
+      },
+      {
+        "at": 19.15,
+        "asset": 1109,
+        "db": -22,
+        "label": "Marketing checkpoint",
+        "anchor": "peak",
+        "pitch": 1
+      },
+      {
+        "at": 19.25,
+        "asset": 2585,
+        "db": -18,
+        "label": "Meta ads toggle",
+        "pan": 0.1,
+        "duck": 1.5
+      },
+      {
+        "at": 19.6,
+        "asset": 2585,
+        "db": -19,
+        "label": "Search ads toggle",
+        "pan": 0.1,
+        "pitch": 2
+      },
+      {
+        "at": 19.65,
+        "asset": 3005,
+        "db": -27,
+        "label": "Marketing results 1",
+        "pitch": 0,
+        "pan": -0.2
+      },
+      {
+        "at": 19.919999999999998,
+        "asset": 3005,
+        "db": -27,
+        "label": "Marketing results 2",
+        "pitch": 1,
+        "pan": 0.0
+      },
+      {
+        "at": 20.189999999999998,
+        "asset": 3005,
+        "db": -27,
+        "label": "Marketing results 3",
+        "pitch": 2,
+        "pan": 0.2
+      },
+      {
+        "at": 20.4,
+        "asset": 166,
+        "db": -26,
+        "label": "Finish flag unfurls",
+        "anchor": "peak",
+        "speed": 1.5,
+        "pan": 0.17
+      },
+      {
+        "at": 21.5,
+        "asset": 3005,
+        "db": -15,
+        "label": "Confetti pop",
+        "pitch": -6,
+        "duck": 2.5
+      },
+      {
+        "at": 21.53,
+        "asset": 1489,
+        "db": -29,
+        "label": "Confetti air",
+        "anchor": "peak",
+        "speed": 2,
+        "pan": 0.25,
+        "lp": 8000
+      },
+      {
+        "at": 21.56,
+        "asset": "pluck",
+        "db": -20,
+        "label": "Finish signature first",
+        "note": 72,
+        "duration": 1.1
+      },
+      {
+        "at": 21.7,
+        "asset": "pluck",
+        "db": -21,
+        "label": "Finish signature second",
+        "note": 76,
+        "duration": 1.1
+      },
+      {
+        "at": 21.86,
+        "asset": "pluck",
+        "db": -23,
+        "label": "Finish signature third",
+        "note": 81,
+        "duration": 1.1
+      },
+      {
+        "at": 22.6,
+        "asset": 1489,
+        "db": -28,
+        "label": "Final route overview",
+        "anchor": "peak",
+        "speed": 0.85,
+        "pan": -0.14
+      },
+      {
+        "at": 23.98,
+        "asset": 2356,
+        "db": -26,
+        "label": "Solo outcome label",
+        "pitch": -4,
+        "pan": -0.22
+      },
+      {
+        "at": 24.28,
+        "asset": 2356,
+        "db": -23,
+        "label": "Together outcome label",
+        "pitch": 2,
+        "pan": 0.22
+      },
+      {
+        "at": 25.65,
+        "asset": 166,
+        "db": -25,
+        "label": "Closing white field",
+        "anchor": "peak",
+        "speed": 1.2,
+        "duck": 1.5
+      },
+      {
+        "at": 26.32,
+        "asset": 3005,
+        "db": -16,
+        "label": "Emphasized real",
+        "pitch": -3,
+        "duck": 2
+      },
+      {
+        "at": 26.32,
+        "asset": "body",
+        "db": -23,
+        "label": "Emphasized real body",
+        "freq": 95
+      },
+      {
+        "at": 26.63,
+        "asset": "pluck",
+        "db": -20,
+        "label": "Service word",
+        "note": 76
+      },
+      {
+        "at": 26.98,
+        "asset": "pluck",
+        "db": -20,
+        "label": "Logo signature lower",
+        "note": 69,
+        "duration": 2
+      },
+      {
+        "at": 27.1,
+        "asset": "pluck",
+        "db": -21,
+        "label": "Logo signature upper",
+        "note": 76,
+        "duration": 1.8
+      }
+    ]
+  }
+}

@@ -201,15 +201,15 @@ class Mix:
 
 def build_a():
     track = load(os.path.join(ASSETS, "music", "173.mp3"))
-    beat = 0.51084
-    first = 0.139
+    beat = 0.50002
+    first = 0.128
     logo = 27.1
-    ending_offset = first + 188 * beat - logo
-    main_offset = ending_offset - 132 * beat
-    start = first + 3 * beat - main_offset
-    splice = first + 48 * beat - main_offset
+    ending_offset = first + 192 * beat - logo
+    main_offset = ending_offset - 128 * beat
+    start = first + 10 * beat - main_offset
+    splice = first + 56 * beat - main_offset
     music = np.zeros((int(DURATION * SR), 2), np.float32)
-    segment(music, track, start, first + 3 * beat, splice + 0.015 - start, fade_in=0.004, fade_out=0.03)
+    segment(music, track, start, first + 10 * beat, splice + 0.015 - start, fade_in=0.004, fade_out=0.03)
     segment(music, track, splice - 0.015, splice - 0.015 + ending_offset, DURATION - splice, fade_in=0.03, fade_out=0.8)
     lowpass_dip(music, 7.95, 8.2, 8.62, 8.86)
     mix = Mix(music)

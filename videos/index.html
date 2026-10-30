@@ -157,7 +157,7 @@
     <ul>
       <li>장면은 HTML과 CSS로 짜고, 시간에 따라 글자와 화면이 움직이게 했습니다. 크롬으로 한 장씩(초당 30장) 찍어 FFmpeg로 MP4를 만들었습니다. HyperFrames와 같은 원리이고, 유료 라이선스가 필요한 도구는 쓰지 않았습니다.</li>
       <li>원본 코드는 <a href="https://github.com/HONEST-FAMILY/ai-education-ad-references/tree/main/videos/src" target="_blank" rel="noopener noreferrer">저장소의 videos/src 폴더</a>에 있습니다. 새 시안은 <code>ad2a.html</code>, <code>ad2b.html</code>, 이전 시안은 <code>ad1b.html</code>, <code>plan1.html</code>, <code>plan2.html</code>, <code>plan3.html</code> 한 파일씩이고, 문구와 시간(초)이 파일 안에 그대로 적혀 있어 Claude Code에 '이 문장을 바꿔줘', '이 장면을 1초 늘려줘'처럼 요청하면 됩니다.</li>
-      <li>다시 뽑을 때는 <code>python render.py blur 5 ad2a:h</code> 처럼 실행합니다. 5는 움직임 번짐을 만들려고 한 프레임마다 찍는 장 수입니다(파이썬 Playwright, 설치된 크롬, FFmpeg 필요). 글꼴 파일(Pretendard, 에스코어 드림)은 홈페이지 프론트 저장소의 public/renewal/assets, public/fonts 에서 assets 폴더로 복사해 씁니다.</li>
+      <li>다시 뽑을 때는 <code>python render.py blur 5 ad2a:h</code> 처럼 실행합니다. 5는 움직임 번짐을 만들려고 한 프레임마다 찍는 장 수입니다(파이썬 Playwright, 설치된 크롬, FFmpeg 필요). 글꼴은 Pretendard 전체 글꼴(npm 패키지 pretendard 의 PretendardVariable.woff2)을 assets/pretendard.woff2 로, 에스코어 드림은 홈페이지 프론트 저장소의 public/fonts 에서 assets 폴더로 복사해 씁니다. 프론트의 public/renewal/assets/pretendard.woff2 는 한글 854자 축소본이라 쓰지 않습니다.</li>
       <li>소리는 <code>python sound.py ad2a ad2b</code> 로 다시 입힙니다. 음악 편집 지점, 효과음 위치와 크기가 파일 안에 시간(초)으로 적혀 있고, 음원은 저장소 안내에 적은 번호대로 Mixkit에서 받아 sound_assets 폴더에 넣습니다.</li>
       <li>광고로 올리기 전에 마지막 장면의 상담 버튼 문구, 연결 주소의 광고 추적 값(utm)을 정합니다.</li>
     </ul>

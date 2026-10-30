@@ -11,7 +11,7 @@
 
 ## 다시 뽑기
 
-1. 글꼴 파일을 assets 폴더에 복사합니다. 홈페이지 프론트 저장소의 public/renewal/assets/pretendard.woff2, public/fonts/S-CoreDream-6Bold.woff, S-CoreDream-8Heavy.woff, S-CoreDream-9Black.woff
+1. 글꼴 파일을 assets 폴더에 복사합니다. Pretendard 는 전체 글꼴(npm 패키지 pretendard 1.3.9 의 dist/web/variable/woff2/PretendardVariable.woff2, OFL)을 pretendard.woff2 이름으로 넣고, S-Core Dream 은 홈페이지 프론트 저장소의 public/fonts/S-CoreDream-6Bold.woff, S-CoreDream-8Heavy.woff, S-CoreDream-9Black.woff 를 넣습니다. 프론트의 public/renewal/assets/pretendard.woff2 는 한글 854자 축소본이라 '뚫' 같은 글자가 다른 글꼴로 그려집니다.
 2. 파이썬 Playwright(pip install playwright pillow), 설치된 구글 크롬, FFmpeg 를 준비합니다.
 3. 장면 확인: python render.py stills plan1 h 1,5,12
 4. 영상 만들기: python render.py blur 5 ad2a:h (움직임 번짐 포함, 5는 한 프레임당 찍는 장 수) 또는 python render.py video plan1:h plan1:v
